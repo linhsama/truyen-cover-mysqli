@@ -1,0 +1,469 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+label {
+    font-weight: bold;
+}
+
+.col {
+    margin-bottom: 10px;
+}
+
+
+
+.item-poster{
+    width: 100%;
+}
+
+.item-poster .item-thumbnail{
+    text-align: center;
+}
+
+.item-poster .item-thumbnail img{
+    width: fit-content;
+}
+
+
+.box-title-1{
+    border-left: 10px solid rgb(0, 81, 255);
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px 10px 40px;
+}
+
+.box-title-2{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px 10px 40px;
+}
+
+.box-title-3{
+    padding-left: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px 10px 40px;
+}
+
+
+.box-title-4{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px 10px 40px;
+    text-align: center;
+}
+
+.background-1{
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(206, 42, 39, 0.851);
+    margin: 10px 10px 10px 40px;
+}
+
+.background-2{
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(182, 176, 10, 0.851);
+    margin: 10px 10px 10px 40px;
+}
+
+.background-3{
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(56, 216, 28, 0.851);
+    margin: 10px 10px 10px 40px;
+}
+
+input#truyen_anh_dai_dien {
+    padding: 4px 1px 2px 3px;
+}
+
+.btn-right {
+    text-align: end;
+    margin: 10px;
+}
+
+.text-mute {
+    font-size: 10px;
+}
+
+.text-title {
+    border-left: 5px solid red;
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.text-title-truyen {
+    border-left: 5px solid blue;
+    padding-left: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.text-title-chapter {
+    border-left: 5px solid pink;
+    padding-left: 20px;
+    margin-left: 30px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* thêm thể loại */
+form#frm_add_the_loai_truyen,
+form#frm_delete_the_loai_truyen {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
+
+/* trạng thái truyện */
+p.trang_thai_cong_bo {
+    background: blue;
+    padding: 5px;
+    width: max-content;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+p.trang_thai_an {
+    background: red;
+    padding: 5px;
+    width: max-content;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+    text-decoration: line-through;
+}
+
+p.tinh_trang_dang_cap_nhat {
+    background: green;
+    padding: 5px;
+    width: max-content;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+p.tinh_trang_hoan_thanh {
+    background: blue;
+    padding: 5px;
+    width: max-content;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+p.tinh_trang_tam_ngung {
+    background: red;
+    padding: 5px;
+    width: max-content;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+    text-decoration: line-through;
+}
+
+#table_truyen-tranh {
+    text-align: center;
+}
+
+/* tài khoản */
+.admin {
+    text-transform: uppercase;
+    background: red;
+    padding: 5px;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.mod {
+    text-transform: uppercase;
+    background: tomato;
+    padding: 5px;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+.user {
+    text-transform: uppercase;
+    background: rgb(71, 105, 255);
+    padding: 5px;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.other {
+    text-transform: uppercase;
+    background: yellow;
+    padding: 5px;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+/* end tài khoản */
+
+/* toast */
+.alert {
+    transition: 0.32s all ease-in-out;
+}
+
+.toast {
+    transition: 0.32s all ease-in-out;
+}
+
+.toast-container--fade {
+    right: 0;
+    top: 0;
+}
+
+.toast-container--fade .toast-wrapper {
+    display: inline-block;
+}
+
+.toast.fade-init {
+    opacity: 0;
+}
+
+.toast.fade-show {
+    opacity: 1;
+}
+
+.toast.fade-hide {
+    opacity: 0;
+}
+
+/* endtoast */
+
+/* SIDEBAR */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 2000;
+    transition: .3s ease;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+#sidebar.hide {
+    width: 60px;
+}
+
+#sidebar .brand {
+    font-size: 24px;
+    font-weight: 700;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    padding-bottom: 20px;
+    box-sizing: content-box;
+}
+
+#sidebar .brand .bx {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar .side-menu {
+    width: 100%;
+    margin-top: 48px;
+}
+
+#sidebar .side-menu li {
+    height: 48px;
+    background: transparent;
+    margin-left: 6px;
+    border-radius: 48px 0 0 48px;
+    padding: 4px;
+}
+
+#sidebar .side-menu li.active {
+    position: relative;
+}
+
+#sidebar .side-menu li a {
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    color: black;
+}
+
+#sidebar .side-menu.top li.active a {
+    color: blue;
+}
+
+#sidebar.hide .side-menu li a {
+    width: calc(48px - (4px * 2));
+    transition: width .3s ease;
+}
+
+#sidebar .side-menu li a.logout {
+    color: red;
+}
+
+#sidebar .side-menu.top li a:hover {
+    color: blue;
+}
+
+#sidebar .side-menu li a .bx {
+    min-width: calc(60px - ((4px + 6px) * 2));
+    display: flex;
+    justify-content: center;
+}
+
+/* SIDEBAR */
+
+/* CONTENT */
+#content {
+    position: relative;
+    width: calc(100% - 280px);
+    left: 250px;
+    transition: .3s ease;
+}
+
+#sidebar.hide~#content {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+table thead tr th {
+    text-align: center !important;
+    font-size: small;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.mo-ta {
+    text-align: justify !important;
+    font-size: small;
+    line-height: 1.5;
+    height: 50px !important;
+}
+
+td {
+    font-size: small;
+}
+
+/* NAVBAR */
+#content nav {
+    height: 56px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    grid-gap: 24px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+main {
+    margin-left: 20px;
+}
+
+/* head-title */
+#content main .head-title {
+    margin: 30px;
+}
+
+.head {
+    margin: 30px 10px;
+    border-left: 5px red solid;
+    padding-left: 10px;
+}
+
+.head>h3 {
+    margin: 10px;
+}
+
+#content main .head-title .left .breadcrumb {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+#content main .head-title .left .breadcrumb li a {
+    color: black;
+    pointer-events: none;
+}
+
+#content main .head-title .left .breadcrumb li a.active {
+    color: blue;
+    pointer-events: unset;
+}
+
+.table-data {
+    margin: 20px;
+}
+
+.dataTables_wrapper {
+    position: relative;
+    background: var(--light);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 100%;
+}

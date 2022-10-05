@@ -1,0 +1,247 @@
+.chapter-list.ps-container {
+    padding-left: 10px;
+}
+/* .chapter-list.ps-container:hover {
+    border-left: 2px solid red;
+    margin-bottom:5px;
+    padding-left: 5px;
+} */
+.chapter-header {
+    padding-left: 10px;
+    font-weight: bold;
+}
+.chapter-list .chapter-item{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.chapter-list .chapter-item:hover{
+    border-left: 5px solid blue;
+    padding-left: 5px;
+}
+
+/* .manga-action  */
+.manga-action {
+    margin-top: 20px;
+}
+
+.manga-action .button {
+    float: left;
+    width: 60px;
+    height: 30px;
+    margin-right: 10px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #03986f;
+    color: #fff
+}
+.button.button-go-back {
+    width: auto;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    font-size: 14px;
+    padding: 4px;
+    flex-wrap: wrap;
+}
+
+div#manga-action {
+    /* position: fixed;
+    right: 0;
+    top: 0; */
+    height: 50px;
+    width: 275px;
+    margin: auto;
+}
+div#manga-action-2 {
+    /* position: fixed;
+    right: 0;
+    top: 0; */
+    height: 50px;
+    width: 260px;
+    margin: auto;
+    padding-left: 10px;
+}
+
+div#manga-action-3 {
+    /* position: fixed;
+    right: 0;
+    top: 0; */
+    height: 50px;
+    width: 260px;
+    margin: auto;
+    padding-left: 50px;
+}
+
+.manga-action .button a {
+    color: #fff;
+    display: block
+}
+
+.manga-action .chapter-select {
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    font-size: 12px;
+}
+
+.manga-action .select-option {
+    top: -1px;
+    left: -1px;
+    position: absolute;
+    background: #fff;
+    width: 120px;
+    min-height: 31px;
+    max-height: 300px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #ccc
+}
+
+.manga-action .select-option.option-2 {
+    top: auto;
+    bottom: -16px
+}
+
+.manga-action .select-option span {
+    display: block;
+    width: 100%;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #eee;
+    text-align: left
+}
+
+.manga-action .select-option span.activated {
+    background: #eee
+}
+
+.manga-action .select-option span a {
+    display: block
+}
+
+/* section.chapter */
+section.chapter {
+    width: 100%
+}
+
+section.chapter .manga-content {
+    text-align: center
+}
+
+.manga-content {
+    clear: both;
+    margin-bottom: 30px;
+    font-weight: 400;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.manga-content img {
+    max-width: 100% !important;
+    margin: 10px auto 0;
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+    height: 500px;
+    background: #eee;
+    border: 1px solid #eee;
+    border-radius: 2px
+}
+
+.manga-content img.loaded {
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 0
+}
+
+.manga-content div {
+    margin-bottom: 15px
+}
+
+.manga-content .image-caption,
+.manga-content .image-description {
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic
+}
+
+.manga-content .image-caption.independent,
+.manga-content .image-description.independent {
+    margin-top: -10px
+}
+
+.manga-content .image-caption a,
+.manga-content .image-description a {
+    font-weight: 600;
+    font-style: normal
+}
+
+/* .manga-comment */
+.manga-comment {
+    width: 100%;
+    padding-right: 10px
+}
+
+.chapter-comment-header {
+    font-size: 14px;
+    font-weight: bold;
+    border-left: 3px blue solid;
+    padding-left: 10px;
+}
+
+.chapter-comment-list {
+    padding-top: 5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    min-height: 70px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.form-group.row {
+    margin: auto;
+    padding: 2px;
+}
+
+.img-commnent {
+    height: 50px;
+}
+
+.comment-title {
+    border-left: 3px red double;
+    padding-left: 5px;
+    margin: auto;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.comment-content {
+    margin: auto;
+    font-size: 11px;
+}
+
+.comment-date {
+    margin: auto;
+    font-size: 10px;
+}

@@ -1,0 +1,601 @@
+/* css cho navbar*/
+.navbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    z-index: 999;
+    background: #fff
+}
+
+.navbar.fixed {
+    position: fixed
+}
+
+.navbar-container {
+    margin: auto;
+    padding-top: 5px;
+    width: 100%;
+    vertical-align: middle;
+}
+
+
+/* logo */
+.logo {
+    float: left;
+    margin-right: 30px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.logo img {
+    height: 40px;
+    vertical-align: middle;
+}
+
+.logo:hover {
+    color: #f85462
+}
+
+
+/* menu */
+.navbar-menu {
+    position: relative;
+}
+
+.navbar-item {
+    float: left;
+    height: 30px;
+    margin-right: 15px;
+    padding: 0 15px;
+    line-height: 30px;
+    border-radius: 5px
+}
+
+.navbar-item a {
+    display: block
+}
+
+
+/* search */
+.navbar-search {
+    position: relative
+}
+
+.navbar-search input {
+    width: 100%;
+    height: 30px;
+    padding: 0 30px 0 10px;
+    line-height: 30px;
+    outline: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px
+}
+
+.navbar-search .icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    color: #999
+}
+
+.navbar-user {
+    width: 100px;
+    position: relative
+}
+
+.navbar-avatar,
+.navbar-user {
+    float: right;
+    margin-left: 10px
+}
+
+.navbar-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    line-height: 35px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #ccc;
+    text-align: center
+}
+
+.navbar-avatar img {
+    width: 100%;
+    height: 100%
+}
+
+.navbar-avatar i {
+    font-size: 20px;
+    color: #999
+}
+
+.navbar-user-action {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 180px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 2px #000;
+    z-index: 9999
+}
+
+.navbar-user-action li {
+    list-style: none
+}
+
+.user-theme {
+    float: right;
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer
+}
+
+
+/* reponsive */
+@media(min-width:1280px) {
+    .navbar.active-menu .navbar-item-sub {
+        max-height: 200px !important
+    }
+
+    .navbar-container {
+        width: 1105px
+    }
+
+    .navbar-menu {
+        width: 770px
+    }
+
+    .navbar-search {
+        width: 320px
+    }
+
+    .navbar-item.has-sub.activated .navbar-item-sub,
+    .navbar-item.has-sub:hover .navbar-item-sub {
+        max-height: 200px
+    }
+
+    .menu-country {
+        width: 110px
+    }
+
+    .menu-genre {
+        width: 630px
+    }
+
+    .menu-genre li {
+        width: 122px
+    }
+}
+
+@media(min-width:1024px) {
+    .navbar {
+        position: fixed;
+        box-shadow: 0 0 3px #999
+    }
+
+    .navbar.active-menu .navbar-item-sub {
+        visibility: visible !important;
+        opacity: 1 !important;
+        box-shadow: 0 2px 2px #999 !important
+    }
+
+    .navbar-menu {
+        float: left
+    }
+
+    .navbar-item {
+        float: left;
+        height: 30px;
+        margin-right: 15px;
+        padding: 0 15px;
+        line-height: 30px;
+        border-radius: 5px
+    }
+
+    .navbar-item:hover {
+        background: #f85462;
+        color: #fff
+    }
+
+    .navbar-item:hover a {
+        color: #fff
+    }
+
+    .navbar-item.has-sub .navbar-item-sub {
+        position: absolute;
+        top: 45px;
+        left: 0;
+        max-height: 0;
+        margin: 0;
+        padding: 10px 15px;
+        background: #fff;
+        color: #000;
+        box-shadow: 0 0 0 #999;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        visibility: hidden;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height .3s, visibility .3s, opacity .3s, box-shadow .3s
+    }
+
+    .navbar-item.has-sub .navbar-item-sub li {
+        height: 30px
+    }
+
+    .navbar-item.has-sub .navbar-item-sub li a {
+        color: #000
+    }
+
+    .navbar-item.has-sub .navbar-item-sub li:hover a {
+        color: #f85462
+    }
+
+    .navbar-item.has-sub .menu-country,
+    .navbar-item.has-sub .menu-genre {
+        float: left
+    }
+
+    .navbar-item.has-sub .menu-genre {
+        padding-left: 15px;
+        border-left: 1px solid #ddd
+    }
+
+    .navbar-item.has-sub .menu-genre li {
+        float: left
+    }
+
+    .navbar-item.has-sub li {
+        list-style: none
+    }
+
+    .navbar-item.has-sub.activated .navbar-item-sub,
+    .navbar-item.has-sub:hover .navbar-item-sub {
+        visibility: visible;
+        opacity: 1;
+        box-shadow: 0 2px 2px #999
+    }
+
+    .navbar-item i {
+        display: none
+    }
+
+    .navbar-search {
+        float: right
+    }
+
+    .navbar-close,
+    .navbar-toggle {
+        display: none
+    }
+}
+
+@media(max-width:1023px) {
+    .navbar {
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #fff;
+        box-shadow: 0 0 3px #999
+    }
+
+    .navbar .logo {
+        transition: position .3s, left .3s
+    }
+
+    .navbar.active-menu .logo {
+        position: fixed;
+        left: 10px;
+        z-index: 999
+    }
+
+    .navbar.active-menu .navbar-menu {
+        left: 0;
+        box-shadow: 0 0 5px #ccc;
+        z-index: 998
+    }
+
+    .navbar.active-menu .navbar-close {
+        opacity: 1;
+        visibility: visible
+    }
+
+    .navbar.active-user-menu .navbar-avatar {
+        position: fixed;
+        top: 5px;
+        right: 10px;
+        z-index: 999
+    }
+
+    .navbar.active-user-menu .user-theme {
+        position: fixed;
+        top: 5px;
+        right: 60px;
+        z-index: 999
+    }
+
+    .navbar.active-user-menu .navbar-user-action {
+        right: 0;
+        box-shadow: 0 0 5px #ccc;
+        z-index: 998
+    }
+
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        bottom: 0;
+        width: 300px;
+        height: 100%;
+        padding: 60px 10px 10px;
+        background: #fff;
+        transition: left .3s
+    }
+
+    .navbar-menu .navbar-item {
+        float: none;
+        height: 40px;
+        margin: 0;
+        line-height: 40px
+    }
+
+    .navbar-menu .navbar-item i {
+        width: 25px
+    }
+
+    .navbar-user-action {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        right: -180px;
+        padding: 60px 10px 10px;
+        background: #fff;
+        display: block !important;
+        transition: right .3s
+    }
+
+    .navbar-search {
+        width: 280px;
+        margin-bottom: 20px
+    }
+
+    .navbar-toggle {
+        float: left;
+        width: 40px;
+        height: 40px;
+        line-height: 40px
+    }
+
+    .navbar-close,
+    .navbar-toggle {
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer
+    }
+
+    .navbar-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .3s, visibility .3s
+    }
+
+    .navbar-item {
+        clear: both
+    }
+
+    .navbar-item-sub {
+        display: none;
+        margin: 0;
+        padding: 0 0 0 5px
+    }
+
+    .navbar-item-sub li {
+        list-style: none;
+        float: left;
+        width: 100px;
+        padding: 0 5px
+    }
+}
+
+@media(min-width:1024px) and (max-width:1279px) {
+    .navbar.active-menu .navbar-item-sub {
+        max-height: 260px !important
+    }
+
+    .navbar-container {
+        width: 992px
+    }
+
+    .navbar-menu {
+        width: 660px
+    }
+
+    .navbar-search {
+        width: 200px
+    }
+
+    .navbar-item.has-sub.activated .navbar-item-sub,
+    .navbar-item.has-sub:hover .navbar-item-sub {
+        max-height: 260px
+    }
+
+    .menu-country {
+        width: 100px
+    }
+
+    .menu-genre {
+        width: 530px
+    }
+
+    .menu-genre li {
+        width: 128px
+    }
+}
+
+@media(min-width:800px) and (max-width:1023px) {
+    .navbar-container {
+        width: 782px
+    }
+
+    .logo {
+        margin-right: 10px
+    }
+}
+
+@media(min-width:768px) and (max-width:799px) {
+    .navbar-container {
+        width: 746px
+    }
+
+    .logo {
+        margin-right: 10px
+    }
+}
+
+@media(min-width:640px) and (max-width:767px) {
+    .navbar-container {
+        width: 620px
+    }
+}
+
+@media(max-width:639px) {
+    .navbar-menu {
+        width: 260px
+    }
+
+    .navbar-search {
+        width: 240px
+    }
+
+    .logo {
+        margin-right: 5px
+    }
+}
+
+@media(min-width:480px) and (max-width:639px) {
+    .navbar-container {
+        width: 460px
+    }
+}
+
+@media(min-width:412px) and (max-width:479px) {
+    .navbar-container {
+        width: 392px
+    }
+}
+
+@media(min-width:375px) and (max-width:411px) {
+    .navbar-container {
+        width: 356px
+    }
+}
+
+@media(min-width:360px) and (max-width:374px) {
+    .navbar-container {
+        width: 340px
+    }
+
+    .navbar.active-menu .logo img {
+        margin-left: 0
+    }
+
+    .logo img {
+        margin-left: -40px
+    }
+}
+
+@media(min-width:294px) and (max-width:359px) {
+    .navbar-container {
+        width: 300px
+    }
+
+    .navbar.active-menu .logo img {
+        margin-left: 0
+    }
+
+    .logo{
+        width: 100px;
+        margin: auto;
+    }
+    .logo img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .navbar-user {
+        width: 50px;
+        margin-left: -40px;
+    }
+}
+@media(min-width:55px) and (max-width:293px) {
+    .navbar{
+        width: fit-content;
+    }
+    .navbar-container {
+        width: 270px;
+    }
+
+    .navbar.active-menu .logo img {
+        margin-left: 0
+    }
+
+    .logo{
+        width: 100px;
+        margin: auto;
+    }
+    .logo img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .navbar-user {
+        margin-left: -40px;
+        width: 50px;
+    }
+}
+
+@media(max-width:55px) {
+    .navbar{
+        width: fit-content;
+    }
+    .navbar-container {
+        width: 200px;
+    }
+
+    .navbar.active-menu .logo img {
+        margin-left: 0
+    }
+
+    .logo{
+        width: 100px;
+        margin: auto;
+    }
+    .logo img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .navbar-user {
+        margin-left: -40px;
+        width: 50px;
+    }
+}
