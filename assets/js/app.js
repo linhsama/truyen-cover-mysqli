@@ -13,15 +13,15 @@ var navbar = document.querySelector(".navbar"),
     actionUser = document.querySelector(".action-user"),
     searchInput = document.querySelector("#search-box"),
     searchIcon = document.querySelector(".navbar-search .icon");
-    //actionAuto = document.querySelector(".action-down");
-    //actionAutoStop = document.querySelector("action-stop");
-    mangaAction = document.querySelector(".manga-action");
+//actionAuto = document.querySelector(".action-down");
+//actionAutoStop = document.querySelector("action-stop");
+mangaAction = document.querySelector(".manga-action");
 
 // Hàm cuộn trang
 function scrollTo(t, e, n) {
     if (!(n <= 0)) {
         var o = (e - t.scrollTop) / n * 10;
-        setTimeout(function () {
+        setTimeout(function() {
             t.scrollTop = t.scrollTop + o, t.scrollTop != e && scrollTo(t, e, n - 10)
         }, 10)
     }
@@ -30,8 +30,8 @@ function scrollTo(t, e, n) {
 // Hàm cuộn trang
 function scrollPageTo(t, e) {
     try {
-        return void (document.body.scrollTop > 0 ? scrollTo(document.body, t, e) : scrollTo(document.documentElement, t, e))
-    } catch (t) { }
+        return void(document.body.scrollTop > 0 ? scrollTo(document.body, t, e) : scrollTo(document.documentElement, t, e))
+    } catch (t) {}
     window.scrollTo(0, t)
 }
 
@@ -41,7 +41,7 @@ function scrollPageAuto() {
     let scrollerID;
     let interval = 50;
 
-    setInterval(function () {
+    setInterval(function() {
         window.scrollBy(0, 500);
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
             clearInterval(scrollerID);
@@ -53,7 +53,7 @@ function scrollPageAuto() {
 
 // Hàm tìm kiếm
 function search() {
-    searchInput.value.length && (window.location.href = "/truyen-cover?key=" + slugify(searchInput.value))
+    searchInput.value.length && (window.location.href = "index.php?tim-kiem=" + slugify(searchInput.value))
 }
 
 // Tao url thân thiện slugify
@@ -91,9 +91,9 @@ function hideFloatingAction() {
 
 
 // Bắt sự kiện nhấn enter và icon search
-searchInput.onkeydown = function (t) {
+searchInput.onkeydown = function(t) {
     13 == t.which && search()
-}, searchIcon.onclick = function () {
+}, searchIcon.onclick = function() {
     search()
 };
 
@@ -114,39 +114,39 @@ function activeMenu() {
         actionToggle.innerHTML = '<i class="fas fa-crosshairs"></i>' // gán icon cho nút actionToggle
 }
 // Bắt các sự kiện on click
-navbarAvatar.onclick = function () {
+navbarAvatar.onclick = function() {
     activeUserAction(),
         userAction.classList.toggle("hidden")
 }
-actionUser.onclick = function () {
+actionUser.onclick = function() {
     activeUserAction(), userAction.classList.remove("hidden")
 }
 
 
-navbarClose.onclick = function () {
+navbarClose.onclick = function() {
     navbar.classList.remove("active-menu")
 }
 
-navbarToggle.onclick = function () {
+navbarToggle.onclick = function() {
     navbar.classList.add("active-menu")
 }
 
-actionToggle.onclick = function () {
+actionToggle.onclick = function() {
     floatingAction.classList.contains("activated") ? (floatingAction.classList.remove("activated"),
         this.innerHTML = '<i class="fas fa-crosshairs"></i>') : (floatingAction.classList.add("activated"),
-            this.innerHTML = '<i class="fas fa-times"></i>')
+        this.innerHTML = '<i class="fas fa-times"></i>')
 }
 
-actionHome.onclick = function () {
+actionHome.onclick = function() {
     window.location.href = '/truyen-cover/index.php'
 }
 
-actionMenu.onclick = function () {
+actionMenu.onclick = function() {
     activeMenu()
 }
 
 
-actionTop.onclick = function () {
+actionTop.onclick = function() {
     scrollPageTo(0, 600)
 }
 
@@ -158,21 +158,18 @@ actionTop.onclick = function () {
 //}
 
 // Lắng nghe sự kiện scroll
-window.addEventListener("scroll", hideFloatingAction), window.addEventListener("click", function (t) {
-    navbarAvatar.contains(t.target)
-        || userAction.contains(t.target)
-        || actionUser.contains(t.target)
-        || (userAction.classList.add("hidden"),
-            navbar.classList.remove("active-user-menu"))
-}),
+window.addEventListener("scroll", hideFloatingAction), window.addEventListener("click", function(t) {
+        navbarAvatar.contains(t.target) ||
+            userAction.contains(t.target) ||
+            actionUser.contains(t.target) ||
+            (userAction.classList.add("hidden"),
+                navbar.classList.remove("active-user-menu"))
+    }),
 
     // Lắng nghe sự kiện click
-    window.addEventListener("click", function (t) {
-        navbarToggle.contains(t.target)
-            || navbarMenu.contains(t.target)
-            || actionMenu.contains(t.target)
-            || navbar.classList.remove("active-menu")
+    window.addEventListener("click", function(t) {
+        navbarToggle.contains(t.target) ||
+            navbarMenu.contains(t.target) ||
+            actionMenu.contains(t.target) ||
+            navbar.classList.remove("active-menu")
     });
-
-
-
