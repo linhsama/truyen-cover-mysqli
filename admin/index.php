@@ -1,7 +1,7 @@
 <?php session_start()?>
 
 <?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="../admin/auth/dang-nhap.php";</script>';
+		echo '<script> location.href="../auth/dang-nhap.php";</script>';
     }
 ?>
 <!DOCTYPE html>

@@ -94,7 +94,7 @@ label {
 }
 
 input#truyen_anh_dai_dien {
-    padding: 4px 1px 2px 3px;
+    padding: 2px 1px 2px 3px;
 }
 
 .btn-right {
@@ -127,6 +127,36 @@ input#truyen_anh_dai_dien {
     margin-left: 30px;
     font-size: 16px;
     font-style: italic;
+}
+
+div.dataTables_wrapper {
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+}
+
+.btn-group,
+.btn-group-vertical {
+    width: max-content;
+}
+
+button.btn.btn-secondary.btn-the-loai {
+    border-radius: 10px 0px;
+    margin: 1px;
+}
+
+button.btn.btn-primary.btn-chapter {
+    border-radius: 0px 10px;
+    margin: 1px;
+}
+
+button.btn.btn-warning.btn-update {
+    border-radius: 0px 10px 0px 0;
+    margin: 1px;
+}
+
+button.btn.btn-danger.btn-delete {
+    border-radius: 0 0 10px 0;
+    margin: 1px;
 }
 
 
@@ -392,6 +422,19 @@ p.tinh_trang_tam_ngung {
 
 
 /* CONTENT */
+
+table.dataTable thead>tr>th.sorting,
+table.dataTable thead>tr>th.sorting_asc,
+table.dataTable thead>tr>th.sorting_desc,
+table.dataTable thead>tr>th.sorting_asc_disabled,
+table.dataTable thead>tr>th.sorting_desc_disabled,
+table.dataTable thead>tr>td.sorting,
+table.dataTable thead>tr>td.sorting_asc,
+table.dataTable thead>tr>td.sorting_desc,
+table.dataTable thead>tr>td.sorting_asc_disabled,
+table.dataTable thead>tr>td.sorting_desc_disabled {
+    font-size: x-small;
+}
 
 #content {
     position: relative;

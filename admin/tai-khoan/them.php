@@ -1,28 +1,4 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?><?php if($_SESSION['admin'] != 'admin'){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?><!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm tài khoản</title>
-
-    <!-- CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-styles.php'); ?>
-</head>
-
-<body>
-    <!-- Mở kết nối -->
-    <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
-
+<?php
     // check validation hiển thị lỗi php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -32,7 +8,7 @@
     if (isset($_POST['btn_add_tai_khoan'])) {
         $ten_hien_thi = $_POST['ten_hien_thi'];
         $ten_tai_khoan = $_POST['ten_tai_khoan'];
-        $mat_khau = $_POST['mat_khau'];
+        $mat_khau = md5($_POST['mat_khau']);
         $phan_quyen = $_POST['phan_quyen'];
         $trang_thai = $_POST['trang_thai'];
 
@@ -120,18 +96,12 @@
 		VALUES ('$ten_hien_thi','$ten_tai_khoan','$mat_khau', '$phan_quyen', '$trang_thai');
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
-		echo '<script> location.href="/truyen-cover/admin/tai-khoan/index.php?result=success";</script>';
+		echo '<script> location.href="index.php?direction=tai-khoan&status=success";</script>';
 
     ?>
     <?php endif; ?>
     <?php endif; ?>
-    <!-- end thêm thông tin -->
 
-    <!-- navigation -->
-    <?php include_once(__DIR__ . '/../../frontend/partials/admin-sidebar.php'); ?>
-    <!-- end navigation -->
-
-    <!-- content -->
     <section id="content">
         <nav>
             <i class='bx bx-menu'></i>
@@ -145,11 +115,11 @@ EOT;
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/tai-khoan/index.php">Danh sách tài khoản</a>
+                            <a class="active" href="index.php?direction=tai-khoan">Danh sách tài khoản</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/tai-khoan/them.php">Thêm mới tài khoản</a>
+                            <a class="active" href="index.php?direction=them-tai-khoan">Thêm mới tài khoản</a>
                         </li>
                     </ul>
                 </div>
@@ -223,11 +193,3 @@ EOT;
                 </div>
         </main>
     </section>
-    <!-- end content -->
-
-    <!-- script -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
-    <!-- end script -->
-</body>
-
-</html>

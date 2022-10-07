@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <title>Đăng ký</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
@@ -83,8 +83,8 @@
                     $sql_check = <<<EOT
                         SELECT * FROM tai_khoan WHERE ten_tai_khoan = '$ten_tai_khoan'
     EOT; 
-                    $result_check = mysqli_query($conn, $sql_check);
-                    $data_old = mysqli_fetch_array($result_check, MYSQLI_ASSOC);
+                    $status_check = mysqli_query($conn, $sql_check);
+                    $data_old = mysqli_fetch_array($status_check, MYSQLI_ASSOC);
 
                     if(isset($data_old)){
                         $check = false;
@@ -99,11 +99,9 @@
                         '$trang_thai',
                         '$phan_quyen')
     EOT; 
-                        $result = mysqli_query($conn, $sql);
-                        $data = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-                        echo 'ok0';
-                        // echo "<script> location.href='./dang-nhap.php?result=success';</script>";
+                        $status = mysqli_query($conn, $sql);
+                        $data = mysqli_fetch_array($status, MYSQLI_ASSOC);
+                        echo "<script> location.href='./dang-nhap.php?status=success';</script>";
                     }
                 }
             }

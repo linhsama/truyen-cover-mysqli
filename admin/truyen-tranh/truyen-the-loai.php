@@ -1,45 +1,21 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm thể loại</title>
-
-    <!-- CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-styles.php'); ?>
-</head>
-
-<body>
-
     <?php if(isset($_GET['truyen_id'])){
         $truyen_id = $_GET['truyen_id'];
     }else{
-		echo '<script> location.href="/truyen-cover/frontend/pages/loi.php";</script>';
-    }?>
-    <!-- Mở kết nối -->
-    <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
- // select dữ liệu
- $sql = <<<EOT
- SELECT * FROM the_loai WHERE the_loai_id NOT IN
-  (SELECT the_loai_id FROM truyen_the_loai WHERE truyen_id = '$truyen_id')
-EOT; 
-     $result = mysqli_query($conn, $sql);
-     $data = [];
-     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-         $data[] = array(
-             'the_loai_id' => $row['the_loai_id'],
-             'the_loai_ten' => $row['the_loai_ten'],
-             'the_loai_mo_ta' => $row['the_loai_mo_ta'],
-         );
-     }
+		echo '<script> location.href="/../frontend/pages/loi.php";</script>';
+    }
+    $sql = <<<EOT
+    SELECT * FROM the_loai WHERE the_loai_id NOT IN
+    (SELECT the_loai_id FROM truyen_the_loai WHERE truyen_id = '$truyen_id')
+    EOT; 
+        $status = mysqli_query($conn, $sql);
+        $data = [];
+        while ($row = mysqli_fetch_array($status, MYSQLI_ASSOC)) {
+            $data[] = array(
+                'the_loai_id' => $row['the_loai_id'],
+                'the_loai_ten' => $row['the_loai_ten'],
+                'the_loai_mo_ta' => $row['the_loai_mo_ta'],
+            );
+        }
 
       // select dữ liệu
  $sql_the_loai = <<<EOT
@@ -105,7 +81,7 @@ error_reporting(E_ALL);
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
     }
-    echo "<script> location.href='/truyen-cover/admin/truyen-tranh/xu-ly-truyen-the-loai.php?truyen_id=$truyen_id';</script>";
+    echo "<script> location.href='index.php?direction=xu-ly-truyen-the-loai&truyen_id=$truyen_id';</script>";
     ?>
 
     <?php endif; ?>
@@ -119,17 +95,12 @@ EOT;
             DELETE FROM truyen_the_loai WHERE truyen_the_loai_id = '$selected';
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
-        echo "<script> location.href='/truyen-cover/admin/truyen-tranh/xu-ly-truyen-the-loai.php?truyen_id=$truyen_id';</script>";
+        echo "<script> location.href='index.php?direction=xu-ly-truyen-the-loai&truyen_id=$truyen_id';</script>";
     }
  ?>
     <?php endif; ?>
     <?php endif; ?>
     <!-- end thêm thông tin -->
-
-    <!-- navigation -->
-    <?php include_once(__DIR__ . '/../../frontend/partials/admin-sidebar.php'); ?>
-    <!-- end navigation -->
-
     <!-- content -->
     <section id="content">
         <nav>
@@ -144,12 +115,12 @@ EOT;
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/truyen-tranh/index.php">Danh sách truyện
+                            <a class="active" href="index.php?direction=truyen-tranh">Danh sách truyện
                                 tranh</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/truyen-tranh/index.php">Cập nhật thể loại truyện
+                            <a class="active" href="index.php?direction=truyen-the-loai&truyen_id=<?=$truyen_id?>">Cập nhật thể loại truyện
                                 tranh</a>
                         </li>
                     </ul>
@@ -233,19 +204,3 @@ EOT;
         </main>
     </section>
     <!-- end content -->
-
-    <!-- script -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
-    <?php 
-    if(isset($_GET['result']) && ($_GET['result']=='success')){
-            echo '<script> toast.success("Thao tác thành công",500);</script>';
-        }
-    if(isset($_GET['result']) && ($_GET['result']=='error')){
-            echo '<script> toast.error("Thao tác thành công",500);</script>';
-        }
-    
-    ?>
-
-</body>
-
-</html>

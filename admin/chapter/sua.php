@@ -1,32 +1,10 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?><!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cập nhật chapter</title>
-
-    <!-- CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-styles.php'); ?>
-</head>
-
-<body>
-    <!-- Mở kết nối -->
-    <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
-   
+<?php
     // kiểm tra get có id không
     if(isset($_GET['chapter_id']) && isset($_GET['truyen_id'])){
         $chapter_id = $_GET['chapter_id'];
         $truyen_id = $_GET['truyen_id'];
-    }else{
-        echo '<script> location.href="/truyen-cover/loi.php"; </script>';
     }
+
     // end kiểm tra get có id không
 
     // selcet thông tin từ id
@@ -90,15 +68,10 @@ EOT;
         WHERE chapter_id = '$chapter_id';
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
-		echo "<script> location.href='/truyen-cover/admin/chapter/index.php?truyen_id=$truyen_id&result=success';</script>";
+		echo "<script> location.href='index.php?direction=chapter&truyen_id=$truyen_id&status=success';</script>";
     ?>
     <?php endif; ?>
     <?php endif; ?>
-    <!-- end cập nhật thông tin -->
-
-    <!-- navigation -->
-    <?php include_once(__DIR__ . '/../../frontend/partials/admin-sidebar.php'); ?>
-    <!-- end navigation -->
 
     <!-- content -->
     <section id="content">
@@ -115,13 +88,13 @@ EOT;
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
                             <a class="active"
-                                href="/truyen-cover/admin/chapter/index.php?truyen_id=<?=$data_old["truyen_id"]?>">Danh
+                                href="index.php?direction=chapter&truyen_id=<?=$data_old["truyen_id"]?>">Danh
                                 sách chapter</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
                             <a class="active"
-                                href="/truyen-cover/admin/chapter/sua.php?chapter_id=<?=$data_old["chapter_id"]?>&truyen_id=<?=$data_old["truyen_id"]?>">Cập
+                                href="index.php?direction=sua-chapter&chapter_id=<?=$data_old["chapter_id"]?>&truyen_id=<?=$data_old["truyen_id"]?>">Cập
                                 nhật chapter</a>
                         </li>
                     </ul>
@@ -157,7 +130,6 @@ EOT;
 
                         <!-- form nhập liệu -->
                         <?php if(empty($data_old)): ?>
-                        <h1>Dữ liệu rỗng! <a href="index?result=error">Quay lại</a></h1>
                         <?php else : ?>
                         <form class="add-update-list" id="frm_update_chapter" action="" method="post">
                             <div class="col">
@@ -197,11 +169,3 @@ EOT;
         </main>
     </section>
     <!-- end content -->
-
-    <!-- script -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
-
-    <!-- end script -->
-</body>
-
-</html>

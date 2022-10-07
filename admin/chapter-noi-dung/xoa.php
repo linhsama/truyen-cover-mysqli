@@ -1,9 +1,4 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?><?php
+<?php
     //Lấy thông tin từ người dùng gửi
     if(isset($_GET['chapter_id']) && isset($_GET['truyen_id']) && isset($_GET['chapter_noi_dung_id'])){
         $chapter_id = $_GET['chapter_id'];
@@ -35,10 +30,8 @@ EOT;
 
                         
         // điều hướng về trang danh sách
-        echo "<script> location.href='/truyen-cover/admin/chapter-noi-dung/index.php?chapter_id=$chapter_id&truyen_id=$truyen_id&result=success'; </script>";
+        echo "<script> location.href='index.php?direction=chapter-noi-dung&chapter_id=$chapter_id&truyen_id=$truyen_id&status=success'; </script>";
     }               
-    }else{
-        echo '<script> location.href="/truyen-cover/loi.php"; </script>';
     }
     
 ?>

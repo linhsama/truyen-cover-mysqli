@@ -1,33 +1,9 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?><!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm chapter</title>
-
-    <!-- CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-styles.php'); ?>
-</head>
-
-<body>
-    <!-- Mở kết nối -->
-
     <?php 
     if(isset($_GET['truyen_id'])){
         $truyen_id = $_GET['truyen_id'];
     }else{
-		echo '<script> location.href="/truyen-cover/frontend/pages/loi.php";</script>';
+		echo '<script> location.href="/../frontend/pages/loi.php";</script>';
     }
-
-
-    include_once(__DIR__ . '/../../backend/dbconnect.php');
 
     // select dữ liệu
     $sql_chapter_so = <<<EOT
@@ -84,7 +60,7 @@ EOT;
 		VALUES ('$chapter_so','$chapter_ten','$chapter_trang_thai','$truyen_id');
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
-		echo "<script> location.href='/truyen-cover/admin/chapter/index.php?truyen_id=$truyen_id&result=success';</script>";
+		echo "<script> location.href='index.php?direction=chapter&truyen_id=$truyen_id&status=success';</script>";
 
     ?>
     <?php endif; ?>
@@ -109,12 +85,12 @@ EOT;
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/chapter/index.php">Danh sách
+                            <a class="active" href="index.php?direction=chapter">Danh sách
                                 chapter</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/chapter/them.php">Thêm mới
+                            <a class="active" href="index.php?direction=them-chapter">Thêm mới
                                 chapter</a>
                         </li>
                     </ul>
@@ -155,7 +131,7 @@ EOT;
                             <div class="col">
                                 <label for="chapter_so" class="form-label">Chapter số</label>
                                 <input type="text" class="form-control" id="chapter_so" name="chapter_so"
-                                    value=<?=$data_chapter_so['chapter_so'] + 1?> readonly="">
+                                    value=<?=!isset($data_chapter_so['chapter_so']) ? 1 :$data_chapter_so['chapter_so'] + 1?> readonly="">
                             </div>
                             <div class="col">
                                 <label for="chapter_ten" class="form-label">Tên chapter</label>
@@ -181,11 +157,3 @@ EOT;
                 </div>
         </main>
     </section>
-    <!-- end content -->
-
-    <!-- script -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
-    <!-- end script -->
-</body>
-
-</html>

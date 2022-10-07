@@ -23,12 +23,6 @@
                 <span class="text">Quản lý thể loại</span>
             </a>
         </li>
-        <li>
-            <a href="index.php?direction=binh-luan">
-                <i class='bx bxs-message-dots'></i>
-                <span class="text">Quản lý bình luận</span>
-            </a>
-        </li>
         <?php if(isset($_SESSION['admin']) && $_SESSION['admin'] == 'admin'):?>
 
         <li>

@@ -1,15 +1,9 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?><?php
+<?php
     //Lấy thông tin từ người dùng gửi
     if(isset($_GET['chapter_id']) && isset($_GET['truyen_id'])){
         $truyen_id = $_GET['truyen_id'];
         $chapter_id = $_GET['chapter_id'];
     // mở kết nối
-    include_once(__DIR__ . '/../../backend/dbconnect.php'); 
     // lấy thông tin từ id
     $sql = <<<EOT
         SELECT chapter_id 
@@ -27,7 +21,7 @@ EOT;
 EOT;
         mysqli_query($conn, $sql);
         // điều hướng về trang danh sách
-        echo "<script>location.href = 'index.php?truyen_id=$truyen_id&result=success';</script>";
+        echo "<script>location.href = 'index.php?direction=chapter&truyen_id=$truyen_id&status=success';</script>";
     }               
     }
 ?>

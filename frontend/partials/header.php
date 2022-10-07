@@ -74,6 +74,10 @@ EOT;
                     <li>Đang Theo Dõi</li>
                 </a>
                 <hr>
+                <a href="./auth/chinh-sua.php">
+                    <li>Chỉnh sửa</li>
+                </a>
+                <hr>
                 <a href="./auth/dang-xuat.php">Đăng Xuất</a>
             </div>
             <?php else:?>

@@ -1,4 +1,9 @@
-<?php session_start();?>
+<?php session_start();
+if(isset($_SESSION['user'])){
+    unset($_SESSION['user']);
+    session_destroy();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -70,8 +75,8 @@
                 $sql = <<<EOT
                     SELECT * FROM tai_khoan WHERE ten_tai_khoan = '$ten_tai_khoan' AND mat_khau='$mat_khau' AND trang_thai = '1'
 EOT; 
-                $result = mysqli_query($conn, $sql);
-                $data = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $status = mysqli_query($conn, $sql);
+                $data = mysqli_fetch_array($status, MYSQLI_ASSOC);
 
                 if(isset($data)){
                     if($data['phan_quyen'] == '0' || $data['phan_quyen'] == '1'){

@@ -55,12 +55,10 @@ EOT;
                 <table id="table_truyen-tranh" class="table" style="width:100%;">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Mã truyện</th>
+                            <th>#</th>
                             <th>Tên truyện</th>
                             <th>Tác giả</th>
                             <th>Mô tả</th>
-                            <th>Hình ảnh</th>
                             <th>Thể loại</th>
                             <th>Tình trạng</th>
                             <th>Lượt xem</th>
@@ -92,15 +90,11 @@ EOT;
                                 };
                                 ?>
                         <tr>
-                            <td><?=$item['truyen_id']?></td>
-                            <td><?=$item['truyen_ma']?></td>
+                            <td><img src="../assets/uploads/<?=$item['truyen_anh_dai_dien']?>" style="height:100px" />
+                            </td>
                             <td><?=$item['truyen_ten']?></td>
                             <td><?=$item['truyen_tac_gia']?></td>
                             <td class="mo-ta"><?=$item['truyen_mo_ta']?></td>
-                            <td><img src="../assets/uploads/<?=$item['truyen_anh_dai_dien']?>" style="height:100px" />
-                            </td>
-
-
                             <td>
 
                                 <?php  foreach ($data_the_loai as $item_the_loai):?>
@@ -137,9 +131,23 @@ EOT;
                             </td>
                             <td class="text-center">
                                 <div class="btn-group">
+
+                                    <button type="button" class="btn btn-secondary btn-the-loai"
+                                        data-truyen_id=<?=$item['truyen_id']?>>
+                                        <i class="fa-solid fa-book-bible"></i> Thêm thể loại
+                                    </button>
+
                                     <button type="button" class="btn btn-warning btn-update"
                                         data-truyen_id=<?=$item['truyen_id']?>>
                                         <i class="fa fa-edit" aria-hidden="true"></i> Sửa
+                                    </button>
+                                </div>
+
+                                <div class="btn-group">
+
+                                    <button type="button" class="btn btn-primary btn-chapter"
+                                        data-truyen_id=<?=$item['truyen_id']?>>
+                                        <i class="fa-solid fa-book-bible"></i> Thêm chapter
                                     </button>
 
                                     <?php if(isset($_SESSION['admin'])&& $_SESSION['admin']=='admin'):?>
@@ -147,6 +155,7 @@ EOT;
                                         data-truyen_id=<?=$item['truyen_id']?>>
                                         <i class="fa fa-trash" aria-hidden="true"></i> Xóa
                                     </button>
+
                                     <?php endif?>
                                 </div>
                             </td>
@@ -162,12 +171,10 @@ EOT;
 <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
 
 <script>
-
 $('#table_truyen-tranh').DataTable({});
 
 $(function() {
     $('.btn-delete').on('click', function() {
-        alert("aa");
         var result = confirm("Bạn chắc chắn muốn xóa ?");
         if (result == true) {
             var id = $(this).attr('data-truyen_id');
@@ -178,6 +185,18 @@ $(function() {
     $('.btn-update').on('click', function() {
         var id = $(this).attr('data-truyen_id');
         location.href = ("index.php?direction=sua-truyen-tranh&truyen_id=" + id);
+    });
+
+
+    $('.btn-the-loai').on('click', function() {
+        var id = $(this).attr('data-truyen_id');
+        location.href = ("index.php?direction=truyen-the-loai&truyen_id=" + id);
+    });
+
+
+    $('.btn-chapter').on('click', function() {
+        var id = $(this).attr('data-truyen_id');
+        location.href = ("index.php?direction=chapter&truyen_id=" + id);
     });
 });
 </script>

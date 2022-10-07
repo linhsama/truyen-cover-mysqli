@@ -258,6 +258,7 @@ EOT;
     </main>
 </section>
 <!-- end content -->
+<?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
 
 <script>
 CKEDITOR.replace('truyen_mo_ta');

@@ -1,45 +1,16 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?><?php if($_SESSION['admin'] != 'admin'){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cập nhật tài khoản</title>
-
-    <!-- CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-styles.php'); ?>
-</head>
-
-<body>
-    <!-- Mở kết nối -->
-    <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
-   
+<?php   
     // kiểm tra get có id không
     if(isset($_GET['tai_khoan_id'])){
         $tai_khoan_id = $_GET['tai_khoan_id'];
-    }else{
-        echo '<script> location.href="/truyen-cover/loi.php"; </script>';
     }
-    // end kiểm tra get có id không
-
     // selcet thông tin từ id
     $data_old = <<<EOT
         SELECT * 
         FROM tai_khoan
         WHERE tai_khoan_id = $tai_khoan_id;
 EOT;
-    $result_old = mysqli_query($conn, $data_old);
-    $data_old = mysqli_fetch_array($result_old, MYSQLI_ASSOC);
+    $status_old = mysqli_query($conn, $data_old);
+    $data_old = mysqli_fetch_array($status_old, MYSQLI_ASSOC);
     // end selcet thông tin từ id
     
     // check validation hiển thị lỗi php
@@ -51,7 +22,7 @@ EOT;
     if (isset($_POST['btn_update_tai_khoan'])) {
         $ten_hien_thi = $_POST['ten_hien_thi'];
         $ten_tai_khoan = $_POST['ten_tai_khoan'];
-        $mat_khau = $_POST['mat_khau'];
+        $mat_khau = $_POST['mat_khau'] == $data_old['mat_khau'] ? $data_old['mat_khau'] : md5($_POST['mat_khau']);
         $phan_quyen = $_POST['phan_quyen'];
         $trang_thai = $_POST['trang_thai'];
 
@@ -142,15 +113,10 @@ EOT;
         WHERE tai_khoan_id = '$tai_khoan_id';
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
-		echo '<script> location.href="/truyen-cover/admin/tai-khoan/index.php?result=success";</script>';
+		echo "<script> location.href='index.php?direction=tai-khoan&status=success';</script>";
     ?>
     <?php endif; ?>
     <?php endif; ?>
-    <!-- end cập nhật thông tin -->
-
-    <!-- navigation -->
-    <?php include_once(__DIR__ . '/../../frontend/partials/admin-sidebar.php'); ?>
-    <!-- end navigation -->
 
     <!-- content -->
     <section id="content">
@@ -166,12 +132,12 @@ EOT;
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/tai-khoan/index.php">Danh sách tài khoản</a>
+                            <a class="active" href="index.php?direction=tai-khoan">Danh sách tài khoản</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
                             <a class="active"
-                                href="/truyen-cover/admin/tai-khoan/sua.php?tai_khoan_id=<?=$data_old["tai_khoan_id"]?>">Cập
+                                href="index.php?direction=sua-tai-khoan&tai_khoan_id=<?=$tai_khoan_id?>">Cập
                                 nhật tài khoản</a>
                         </li>
                     </ul>
@@ -207,7 +173,7 @@ EOT;
 
                         <!-- form nhập liệu -->
                         <?php if(empty($data_old)): ?>
-                        <h1>Dữ liệu rỗng! <a href="index?result=error">Quay lại</a></h1>
+                        <h1>Dữ liệu rỗng! <a href="index?status=error">Quay lại</a></h1>
                         <?php else : ?>
                         <form class="add-update-list" id="frm_update_tai_khoan" action="" method="post">
                             <div class="col">
@@ -281,10 +247,3 @@ EOT;
         </main>
     </section>
     <!-- end content -->
-
-    <!-- script -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
-    <!-- end script -->
-</body>
-
-</html>

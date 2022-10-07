@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10">
-                <span>Website nằm trong đồ án môn Kỹ năng nghề <br/>
-                Được thực hiện bởi nhóm Linh - Nguyên - Dương </br>
-                Ngày báo cáo 11/09/2022</span>
+                <span>Website nằm trong đồ án môn Kỹ năng nghề <br />
+                    Ngày báo cáo 11/09/2022<br />
+                    Nguồn tham khảo: https://truyentranh1.com/</span>
             </div>
         </div>
     </div>
