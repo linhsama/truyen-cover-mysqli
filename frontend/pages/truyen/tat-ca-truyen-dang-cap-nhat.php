@@ -34,19 +34,19 @@
 ?>
 
             <!-- truyện đã đang cập nhật -->
-            <a href="/truyen-cover?truyen-manga=tat-ca-truyen-dang-cap-nhat">
+            <a href="index.php?truyen-manga=tat-ca-truyen-dang-cap-nhat">
                 <div class="section-title color-8">ĐANG CẬP NHẬT</div>
             </a>
             <?php foreach($data_dang_cap_nhat as $item):?>
             <div class="item-medium">
-                <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+                <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
                     <div class="item-thumbnail">
-                        <img src="/truyen-cover/assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
+                        <img src="./assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
                         <span class="background-8"><?=thousand_format($item['truyen_luot_xem'])?><i
                                 class="fas fa-eye"></i></span>
                     </div>
                 </a>
-                <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+                <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
                     <h3 class="item-title"><?=$item['truyen_ten']?></h3>
                 </a>
             </div>

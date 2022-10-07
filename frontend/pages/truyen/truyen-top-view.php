@@ -30,19 +30,19 @@
 ?>
 <!-- Top view  -->
 <div class="column-right">
-    <a href="/truyen-cover?truyen-manga=tat-ca-truyen-top-view">
+    <a href="index.php?truyen-manga=tat-ca-truyen-top-view">
         <div class="section-title color-9">Top View</div>
     </a>
     <?php foreach($data_top_view as $item):?>
 
     <div class="item-large">
-        <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+        <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
             <div class="item-poster">
-                <img src="/truyen-cover/assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
+                <img src="./assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
                 <span class="background-9"><?=$item['truyen_luot_xem']?> lượt xem <i class="fas fa-eye"></i></span>
             </div>
         </a>
-        <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+        <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
             <h3 class="item-title"><?=$item['truyen_ten']?></h3>
         </a>
     </div>

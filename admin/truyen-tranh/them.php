@@ -1,26 +1,4 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm truyện tranh</title>
-
-    <!-- CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-styles.php'); ?>
-</head>
-
-<body>
-    <!-- Mở kết nối -->
-    <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
-
+<?php
     // check validation hiển thị lỗi php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -148,9 +126,9 @@
         // end check required và lenght
     ?>
 
-    <!-- thêm thông tin -->
-    <?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
-    <?php if( !isset($errors) OR (empty($errors))): 
+<!-- thêm thông tin -->
+<?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
+<?php if( !isset($errors) OR (empty($errors))): 
 
         $upload_dir = __DIR__ . "/../../assets/uploads/truyen-tranh/";
         $tentaptin = date('YmdHis').'_'.$_FILES['truyen_anh_dai_dien']['name'];
@@ -163,145 +141,138 @@
 EOT;
             mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
  }
- echo '<script> location.href="/truyen-cover/admin/truyen-tranh/index.php?result=success";</script>';
+ echo '<script> location.href="index.php?direction=truyen-tranh&status=success";</script>';
 
   ?>
-    <?php endif; ?>
-    <?php endif; ?>
-    <!-- end thêm thông tin -->
+<?php endif; ?>
+<?php endif; ?>
+<!-- end thêm thông tin -->
 
-    <!-- navigation -->
-    <?php include_once(__DIR__ . '/../../frontend/partials/admin-sidebar.php'); ?>
-    <!-- end navigation -->
+<!-- navigation -->
+<?php include_once(__DIR__ . '/../../frontend/partials/admin-sidebar.php'); ?>
+<!-- end navigation -->
 
-    <!-- content -->
-    <section id="content">
-        <nav>
-            <i class='bx bx-menu'></i>
-        </nav>
-        <main>
-            <div class="head-title">
-                <div class="left">
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Quản lý truyện</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active" href="/truyen-cover/admin/truyen-tranh/index.php">Danh sách truyện</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active" href="/truyen-cover/admin/truyen-tranh/them.php">Thêm mới truyện</a>
-                        </li>
-                    </ul>
+<!-- content -->
+<section id="content">
+    <nav>
+        <i class='bx bx-menu'></i>
+    </nav>
+    <main>
+        <div class="head-title">
+            <div class="left">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Quản lý truyện</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="index.php?direction=truyen-tranh">Danh sách truyện</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="index.php?direction=them-truyen-tranh">Thêm mới truyện</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="table-data">
+            <div class="index">
+                <div class="head">
+                    <h3>Thêm truyện</h3>
+                </div>
+                <div class="add-update">
+                    <!-- vùng hiển thị lỗi -->
+
+                    <?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
+                    <?php if( isset($errors) && (!empty($errors))): ?>
+                    <div id="errors-container" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <ul>
+                            <?php foreach($errors as $fields):?>
+                            <?php foreach($fields as $field):?>
+                            <li><?php echo $field['msg'] ?></li>
+                            <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                    <!-- end vùng hiển thị lỗi -->
+
+                    <!-- form nhập liệu -->
+                    <form class="add-update-list" id="frm_add_update_truyen_tranh" action="" method="post"
+                        enctype="multipart/form-data">
+                        <div class="col">
+                            <label for="truyen_ma" class="form-label">Mã truyện</label>
+                            <input type="text" class="form-control" id="truyen_ma" name="truyen_ma">
+                        </div>
+                        <div class="col">
+                            <label for="truyen_ten" class="form-label">Tên truyện</label>
+                            <input type="text" class="form-control" id="truyen_ten" name="truyen_ten">
+                        </div>
+                        <div class="col">
+                            <label for="truyen_tac_gia" class="form-label">Tác giả</label>
+                            <input type="text" class="form-control" id="truyen_tac_gia" name="truyen_tac_gia">
+                        </div>
+                        <div class="col">
+                            <label for="truyen_mo_ta" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="truyen_mo_ta" name="truyen_mo_ta"></textarea>
+                        </div>
+                        <div class="form-group col">
+                            <label for="truyen_anh_dai_dien">Hình đại diện</label>
+                            <div class="preview-img-container text-center">
+                                <img src="/truyen-cover/assets/default-image_600.png" id="preview-img" witdh="200px"
+                                    height="220px" />
+                            </div>
+                            <input type="file" class="form-control" id="truyen_anh_dai_dien" name="truyen_anh_dai_dien"
+                                accept=".jpg, .jpeg, .png, .gif" />
+                        </div>
+                        <div class="col">
+                            <label for="truyen_tinh_trang" class="form-label">Tình trạng truyện</label>
+                            <select class="form-select form-control" id="truyen_tinh_trang" name="truyen_tinh_trang">
+                                <option value="1">Đang cập nhật</option>
+                                <option value="2">Hoàn thành</option>
+                                <option value="3">Tạm ngừng</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="truyen_trang_thai" class="form-label">Trạng thái</label>
+                            <select class="form-select form-control" id="truyen_trang_thai" name="truyen_trang_thai">
+                                <option value="1">Công bố</option>
+                                <option value="2">Ẩn</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-primary" id="btn_add_truyen_tranh"
+                                name="btn_add_truyen_tranh"><i class="fa-solid fa-floppy-disk"></i> Lưu thông
+                                tin</button>
+                        </div>
+                        <!-- form nhập liệu -->
+
                 </div>
             </div>
+    </main>
+</section>
+<!-- end content -->
 
-            <div class="table-data">
-                <div class="index">
-                    <div class="head">
-                        <h3>Thêm truyện</h3>
-                    </div>
-                    <div class="add-update">
-                        <!-- vùng hiển thị lỗi -->
+<script>
+CKEDITOR.replace('truyen_mo_ta');
 
-                        <?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
-                        <?php if( isset($errors) && (!empty($errors))): ?>
-                        <div id="errors-container" class="alert alert-danger alert-dismissible fade show mt-2"
-                            role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <ul>
-                                <?php foreach($errors as $fields):?>
-                                <?php foreach($fields as $field):?>
-                                <li><?php echo $field['msg'] ?></li>
-                                <?php endforeach; ?>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                        <?php endif; ?>
-                        <?php endif; ?>
-                        <!-- end vùng hiển thị lỗi -->
+const reader = new FileReader();
+const fileInput = document.getElementById("truyen_anh_dai_dien");
+const img = document.getElementById("preview-img");
 
-                        <!-- form nhập liệu -->
-                        <form class="add-update-list" id="frm_add_update_truyen_tranh" action="" method="post"  enctype="multipart/form-data">
-                            <div class="col">
-                                <label for="truyen_ma" class="form-label">Mã truyện</label>
-                                <input type="text" class="form-control" id="truyen_ma" name="truyen_ma">
-                            </div>
-                            <div class="col">
-                                <label for="truyen_ten" class="form-label">Tên truyện</label>
-                                <input type="text" class="form-control" id="truyen_ten" name="truyen_ten">
-                            </div>
-                            <div class="col">
-                                <label for="truyen_tac_gia" class="form-label">Tác giả</label>
-                                <input type="text" class="form-control" id="truyen_tac_gia" name="truyen_tac_gia">
-                            </div>
-                            <div class="col">
-                                <label for="truyen_mo_ta" class="form-label">Mô tả</label>
-                                <textarea class="form-control" id="truyen_mo_ta" name="truyen_mo_ta"></textarea>
-                            </div>
-                            <div class="form-group col">
-                                <label for="truyen_anh_dai_dien">Hình đại diện</label>
-                                <div class="preview-img-container text-center">
-                                    <img src="/truyen-cover/assets/default-image_600.png" id="preview-img" witdh="200px"
-                                        height="220px" />
-                                </div>
-                                <input type="file" class="form-control" id="truyen_anh_dai_dien"
-                                    name="truyen_anh_dai_dien" accept=".jpg, .jpeg, .png, .gif" />
-                            </div>
-                            <div class="col">
-                                <label for="truyen_tinh_trang" class="form-label">Tình trạng truyện</label>
-                                <select class="form-select form-control" id="truyen_tinh_trang"
-                                    name="truyen_tinh_trang">
-                                    <option value="1">Đang cập nhật</option>
-                                    <option value="2">Hoàn thành</option>
-                                    <option value="3">Tạm ngừng</option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label for="truyen_trang_thai" class="form-label">Trạng thái</label>
-                                <select class="form-select form-control" id="truyen_trang_thai"
-                                    name="truyen_trang_thai">
-                                    <option value="1">Công bố</option>
-                                    <option value="2">Ẩn</option>
-                                </select>
-                            </div>
-                            <br />
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary" id="btn_add_truyen_tranh"
-                                    name="btn_add_truyen_tranh"><i class="fa-solid fa-floppy-disk"></i> Lưu thông
-                                    tin</button>
-                            </div>
-                            <!-- form nhập liệu -->
+fileInput.addEventListener('change', e => {
+    const f = e.target.files[0];
+    reader.readAsDataURL(f);
+})
 
-                    </div>
-                </div>
-        </main>
-    </section>
-    <!-- end content -->
-
-    <!-- script -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
-    <script>
-    CKEDITOR.replace('truyen_mo_ta');
-
-    const reader = new FileReader();
-    const fileInput = document.getElementById("truyen_anh_dai_dien");
-    const img = document.getElementById("preview-img");
-
-    fileInput.addEventListener('change', e => {
-        const f = e.target.files[0];
-        reader.readAsDataURL(f);
-    })
-
-    reader.onload = e => {
-        img.src = e.target.result;
-    }
-    </script>
-    <!-- end script -->
-</body>
-
-</html>
+reader.onload = e => {
+    img.src = e.target.result;
+}
+</script>
+<!-- end script -->

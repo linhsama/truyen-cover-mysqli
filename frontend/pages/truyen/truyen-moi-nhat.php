@@ -31,20 +31,20 @@
 <!-- Truyện-mới -->
 <section>
     <div class="column-left new">
-        <a href="/truyen-cover?truyen-manga=tat-ca-truyen-moi">
+        <a href="index.php?truyen-manga=tat-ca-truyen-moi">
             <div class="section-title color-4">TRUYỆN MỚI</div>
         </a>
         <?php foreach ($data_truyen_moi as $item):?>
         <?php if(!empty($item['truyen_id'])):?>
         <div class="item-large">
-            <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+            <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
                 <div class="item-thumbnail">
-                    <img src="/truyen-cover/assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
+                    <img src="./assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
                     <span class="background-4"><?=get_time_ago($item['truyen_ngay_dang']);?>
                     </span>
                 </div>
             </a>
-            <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+            <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
                 <h3 class="item-title color-4"><?=$item['truyen_ten']?></h3>
             </a>
             <span class="item-views"><?=thousand_format($item['truyen_luot_xem'])?> lượt xem</span>
@@ -78,7 +78,7 @@
                 <?php foreach ($data_chap_moi as $item_chap_moi):?>
                 <?php if(!empty($item_chap_moi['chapter_id'])):?>
                 <a
-                    href="/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=<?=$item['truyen_id']?>&chapter_id=<?=$item_chap_moi['chapter_id']?>&chapter_so=<?=$item_chap_moi['chapter_so']?>">
+                    href="index.php?truyen-manga=noi-dung-chapter&truyen_id=<?=$item['truyen_id']?>&chapter_id=<?=$item_chap_moi['chapter_id']?>&chapter_so=<?=$item_chap_moi['chapter_so']?>">
                     <span class="child-name"></span><?=$item_chap_moi['chapter_ten']?></span>
                     <span class="child-update"><?=get_time_ago($item_chap_moi['chapter_ngay_cap_nhat'])?></span>
                 </a>

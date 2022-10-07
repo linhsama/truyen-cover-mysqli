@@ -1,7 +1,5 @@
-<?php session_start()?>
-
 <?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
+		echo '<script> location.href="/auth/dang-nhap.php";</script>';
     }
 ?>
 <!DOCTYPE html>
@@ -18,13 +16,7 @@
 </head>
 
 <body>
-<?php if(!$_SESSION['admin']){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-    ?>
-    <!-- mở kết nối -->
-    <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
-
+    <?php 
     // select dữ liệu
     $sql = <<<EOT
         SELECT the_loai_id, the_loai_ten, the_loai_mo_ta
@@ -61,7 +53,7 @@ EOT;
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/truyen-cover/admin/the-loai/index.php">Danh sách thể loại</a>
+                            <a class="active" href="index.php?direction=the-loai">Danh sách thể loại</a>
                         </li>
                     </ul>
                 </div>
@@ -82,8 +74,8 @@ EOT;
                                 <th>Tên thể loại</th>
                                 <th>Mô tả</th>
                                 <th class="text-center">
-                                    <a href="them.php">
-                                        <div class="btn btn-primary"><i class="fa fa-plus"></i> Thêm mới</div>
+                                    <a href="index.php?direction=them-the-loai">
+                                        <div class="btn-sm btn-primary"><i class="fa fa-plus"></i> Thêm mới</div>
                                     </a>
                                 </th>
                             </tr>
@@ -96,12 +88,12 @@ EOT;
                                 <td><?=$item['the_loai_mo_ta']?></td>
                                 <td class="text-center font-weight-bold">
                                     <div class="btn-group btn-group-sm">
-                                        <a href="sua.php?the_loai_id=<?=$item['the_loai_id']?>"
-                                            class="btn btn-warning mr-2"><i class="fa fa-pencil" aria-hidden="true"></i>
-                                            Sửa</a>
-                                     
-                                        <?php if(isset($_SESSION['admin'])&& $_SESSION['admin']=='admin'):?>   
-                                            <button type="button" class="btn btn-danger btn-delete"
+                                        <button type="button" class="btn btn-warning btn-update"
+                                            data-the_loai_id=<?=$item['the_loai_id']?>>
+                                            <i class="fa fa-edit" aria-hidden="true"></i> Sửa
+                                        </button>
+                                        <?php if(isset($_SESSION['admin'])&& $_SESSION['admin']=='admin'):?>
+                                        <button type="button" class="btn btn-danger btn-delete"
                                             data-the_loai_id=<?=$item['the_loai_id']?>>
                                             <i class="fa fa-trash" aria-hidden="true"></i> Xóa
                                         </button>
@@ -136,21 +128,17 @@ EOT;
             var result = confirm("Bạn chắc chắn muốn xóa ?");
             if (result == true) {
                 var id = $(this).attr('data-the_loai_id');
-                location.href = ("xoa.php?the_loai_id=" + id);
+                location.href = ("index.php?direction=xoa-the-loai&the_loai_id=" + id);
             }
+        });
+        $('.btn-update').on('click', function() {
+            var id = $(this).attr('data-the_loai_id');
+            location.href = ("index.php?direction=sua-the-loai&the_loai_id=" + id);
         });
     });
     </script>
 
-    <?php 
-    if(isset($_GET['result']) && ($_GET['result']=='success')){
-            echo '<script> toast.success("Thao tác thành công",500);</script>';
-        }
-    if(isset($_GET['result']) && ($_GET['result']=='error')){
-            echo '<script> toast.error("Thao tác thành công",500);</script>';
-        }
-    
-    ?>
+
 </body>
 
 </html>

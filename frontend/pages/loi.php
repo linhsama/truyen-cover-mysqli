@@ -1,1 +1,1 @@
-<h1>Không tìm thấy trang <a href="/truyen-cover/index.php">Quay lại</a></h1>
+<h1>Không tìm thấy trang <a href="./index.php">Quay lại</a></h1>

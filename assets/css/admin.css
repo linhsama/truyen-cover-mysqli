@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
 }
 
 a,
@@ -25,22 +28,19 @@ label {
     margin-bottom: 10px;
 }
 
-
-
-.item-poster{
+.item-poster {
     width: 100%;
 }
 
-.item-poster .item-thumbnail{
+.item-poster .item-thumbnail {
     text-align: center;
 }
 
-.item-poster .item-thumbnail img{
+.item-poster .item-thumbnail img {
     width: fit-content;
 }
 
-
-.box-title-1{
+.box-title-1 {
     border-left: 10px solid rgb(0, 81, 255);
     padding-left: 20px;
     font-size: 20px;
@@ -48,29 +48,28 @@ label {
     margin: 10px 10px 10px 40px;
 }
 
-.box-title-2{
+.box-title-2 {
     padding-left: 20px;
     font-size: 20px;
     font-weight: bold;
     margin: 10px 10px 10px 40px;
 }
 
-.box-title-3{
+.box-title-3 {
     padding-left: 25px;
     font-size: 20px;
     font-weight: bold;
     margin: 10px 10px 10px 40px;
 }
 
-
-.box-title-4{
+.box-title-4 {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 10px 10px 40px;
     text-align: center;
 }
 
-.background-1{
+.background-1 {
     padding-left: 20px;
     font-size: 15px;
     font-weight: bold;
@@ -78,7 +77,7 @@ label {
     margin: 10px 10px 10px 40px;
 }
 
-.background-2{
+.background-2 {
     padding-left: 20px;
     font-size: 15px;
     font-weight: bold;
@@ -86,7 +85,7 @@ label {
     margin: 10px 10px 10px 40px;
 }
 
-.background-3{
+.background-3 {
     padding-left: 20px;
     font-size: 15px;
     font-weight: bold;
@@ -121,6 +120,7 @@ input#truyen_anh_dai_dien {
     font-size: 20px;
     font-weight: bold;
 }
+
 .text-title-chapter {
     border-left: 5px solid pink;
     padding-left: 20px;
@@ -129,7 +129,9 @@ input#truyen_anh_dai_dien {
     font-style: italic;
 }
 
+
 /* thêm thể loại */
+
 form#frm_add_the_loai_truyen,
 form#frm_delete_the_loai_truyen {
     -ms-flex-wrap: wrap;
@@ -140,7 +142,9 @@ form#frm_delete_the_loai_truyen {
     border-radius: 0.25rem;
 }
 
+
 /* trạng thái truyện */
+
 p.trang_thai_cong_bo {
     background: blue;
     padding: 5px;
@@ -198,7 +202,9 @@ p.tinh_trang_tam_ngung {
     text-align: center;
 }
 
+
 /* tài khoản */
+
 .admin {
     text-transform: uppercase;
     background: red;
@@ -224,6 +230,7 @@ p.tinh_trang_tam_ngung {
     width: fit-content;
     margin: auto;
 }
+
 .user {
     text-transform: uppercase;
     background: rgb(71, 105, 255);
@@ -250,9 +257,12 @@ p.tinh_trang_tam_ngung {
     margin: auto;
 }
 
+
 /* end tài khoản */
 
+
 /* toast */
+
 .alert {
     transition: 0.32s all ease-in-out;
 }
@@ -282,14 +292,17 @@ p.tinh_trang_tam_ngung {
     opacity: 0;
 }
 
+
 /* endtoast */
 
+
 /* SIDEBAR */
+
 #sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 200px;
     height: 100%;
     z-index: 2000;
     transition: .3s ease;
@@ -374,13 +387,16 @@ p.tinh_trang_tam_ngung {
     justify-content: center;
 }
 
+
 /* SIDEBAR */
 
+
 /* CONTENT */
+
 #content {
     position: relative;
-    width: calc(100% - 280px);
-    left: 250px;
+    width: calc(100% - 200px);
+    left: 200px;
     transition: .3s ease;
 }
 
@@ -407,7 +423,19 @@ td {
     font-size: small;
 }
 
+.color_random {
+    padding: 5px;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-size: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: 2px;
+}
+
+
 /* NAVBAR */
+
 #content nav {
     height: 56px;
     padding: 0 24px;
@@ -424,13 +452,15 @@ main {
     margin-left: 20px;
 }
 
+
 /* head-title */
+
 #content main .head-title {
     margin: 30px;
 }
 
 .head {
-    margin: 30px 10px;
+    margin: 10px 10px;
     border-left: 5px red solid;
     padding-left: 10px;
 }

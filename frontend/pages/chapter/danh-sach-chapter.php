@@ -61,11 +61,11 @@
         <section>
             <div class="column-left manga-info">
                 <div class="manga-thumbnail">
-                    <img src="/truyen-cover/assets/uploads/<?=$data_chapter_moi['truyen_anh_dai_dien']?>">
+                    <img src="./assets/uploads/<?=$data_chapter_moi['truyen_anh_dai_dien']?>">
                     <?php if(!empty($data_chapter_moi['chapter_so'])):?>
                     <div class="read-continue background-3">
                         <a
-                            href="/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=<?=$data_chapter_moi['truyen_id']?>&chapter_id=<?=$data_chapter_moi['chapter_id']?>&chapter_so=<?=$data_danh_sach_chap['0']['chapter_so']?>">
+                            href="index.php?truyen-manga=noi-dung-chapter&truyen_id=<?=$data_chapter_moi['truyen_id']?>&chapter_id=<?=$data_chapter_moi['chapter_id']?>&chapter_so=<?=$data_danh_sach_chap['0']['chapter_so']?>">
                             &gt;&gt; đọc chap mới nhất</a>
                     </div>
                     <?php endif?>
@@ -97,7 +97,7 @@
                         <a href="#" class="color-2">Đang cập nhật...</a>
                         <?php else:?>
                         <a class="color-1"
-                            href="/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=<?=$data_chapter_moi['truyen_id']?>&chapter_id=<?=$data_chapter_moi['chapter_id']?>&chapter_so=<?=$item_danh_sach_chap['chapter_so']?>">Chapter <?=$data_chapter_moi['chapter_so'] ?></a>
+                            href="index.php?truyen-manga=noi-dung-chapter&truyen_id=<?=$data_chapter_moi['truyen_id']?>&chapter_id=<?=$data_chapter_moi['chapter_id']?>&chapter_so=<?=$item_danh_sach_chap['chapter_so']?>">Chapter <?=$data_chapter_moi['chapter_so'] ?></a>
                     </span>
                     <?php endif?>
 
@@ -110,7 +110,7 @@
                 <?php if(!empty($data_chapter_dau_tien[0]['chapter_id'])):?>
                 <div class="manga-read">
                     <a class="background-7"
-                        href="/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=<?=$data_chapter_moi['truyen_id']?>&chapter_id=<?=$data_chapter_moi['chapter_id']?>&chapter_so=<?=$data_chapter_dau_tien['0']['chapter_so']?>">Đọc
+                        href="index.php?truyen-manga=noi-dung-chapter&truyen_id=<?=$data_chapter_moi['truyen_id']?>&chapter_id=<?=$data_chapter_moi['chapter_id']?>&chapter_so=<?=$data_chapter_dau_tien['0']['chapter_so']?>">Đọc
                         từ đầu</a>
                 </div>
                 <?php endif?>
@@ -134,7 +134,7 @@
                     <?php foreach ($data_danh_sach_chap as $item_danh_sach_chap):?>
                     <?php if(!empty($item_danh_sach_chap['chapter_id'])):?>
                     <a
-                        href="/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=<?=$item_danh_sach_chap['truyen_id']?>&chapter_id=<?=$item_danh_sach_chap['chapter_id']?>&chapter_so=<?=$item_danh_sach_chap['chapter_so']?>">
+                        href="index.php?truyen-manga=noi-dung-chapter&truyen_id=<?=$item_danh_sach_chap['truyen_id']?>&chapter_id=<?=$item_danh_sach_chap['chapter_id']?>&chapter_so=<?=$item_danh_sach_chap['chapter_so']?>">
                         <div class="chapter-list ps-container">
                             <div class="chapter-data_chapter_moi chapter-item">
                                 <span class="chapter-name">

@@ -18,8 +18,8 @@ EOT;
 <nav class="navbar">
     <div class="navbar-container" style="overflow: unset;">
         <div class="navbar-left">
-            <a class="logo" href="/truyen-cover/index.php">
-                <img id="logo" src="/truyen-cover/assets/logo.png">
+            <a class="logo" href="./index.php">
+                <img id="logo" src="./assets/logo.png">
             </a>
             <div class="navbar-toggle"><i class="fas fa-bars"></i></div>
             <div class="navbar-menu">
@@ -33,13 +33,13 @@ EOT;
                     <a href="#"><i class="fas fa-list"></i>Danh Sách</a>
                     <ul class="navbar-item-sub">
                         <div class="menu-country">
-                            <li><a href="/truyen-cover?truyen-manga=tat-ca-truyen-manga">Manga</a></li>
-                            <!-- <li><a href="/truyen-cover?truyen-manhwa">Manhwa</a></li> -->
+                            <li><a href="index.php?truyen-manga=tat-ca-truyen-manga">Manga</a></li>
+                            <!-- <li><a href="index.php?truyen-manhwa">Manhwa</a></li> -->
                         </div>
                         <div class="menu-genre">
                             <?php foreach($data as $item):?>
                             <li>
-                                <a href="/truyen-cover?the-loai=<?=$item['the_loai_id']?>">
+                                <a href="index.php?the-loai=<?=$item['the_loai_id']?>">
                                     <?=$item['the_loai_ten']?>
                                 </a>
                             </li>
@@ -47,7 +47,7 @@ EOT;
                         </div>
                     </ul>
                 </div>
-                <div class="navbar-item"><a href="/truyen-cover?truyen-manga=tat-ca-truyen-top-view"><i
+                <div class="navbar-item"><a href="index.php?truyen-manga=tat-ca-truyen-top-view"><i
                             class="fas fa-chart-line"></i>Truyện
                         Hot</a></div>
                 <div class="navbar-close">
@@ -64,24 +64,24 @@ EOT;
                 <a href="#">
                     <li><b><?=$_SESSION['user_ten_hien_thi']?></b></li>
                 </a>
-                <a href="/truyen-cover?truyen-manga=truyen-da-xem">
+                <a href="index.php?truyen-manga=truyen-da-xem">
                     <li>Truyện đã xem</li>
                 </a>
-                <a href="/truyen-cover?truyen-manga=truyen-da-thich">
+                <a href="index.php?truyen-manga=truyen-da-thich">
                     <li>Truyện Đã Thích</li>
                 </a>
-                <a href="/truyen-cover?truyen-manga=truyen-dang-theo-doi">
+                <a href="index.php?truyen-manga=truyen-dang-theo-doi">
                     <li>Đang Theo Dõi</li>
                 </a>
                 <hr>
-                <a href="/truyen-cover/backend/auth/dang-xuat.php">Đăng Xuất</a>
+                <a href="./auth/dang-xuat.php">Đăng Xuất</a>
             </div>
             <?php else:?>
             <div class="navbar-avatar">
                 <i class="fa-solid fa-user-lock"></i>
             </div>
             <div class="navbar-user-action hidden">
-                <a href="/truyen-cover/backend/auth/dang-nhap.php">Đăng nhập</a>
+                <a href="./auth/dang-nhap.php">Đăng nhập</a>
             </div>
             <?php endif?>
         </div>

@@ -43,14 +43,14 @@
 
             <div class="item-medium">
                 <a
-                    href="/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=<?=$item['truyen_id']?>&chapter_id=<?=$item['chapter_id']?>&chapter_so=<?=$item['chapter_so']?>">
+                    href="index.php?truyen-manga=noi-dung-chapter&truyen_id=<?=$item['truyen_id']?>&chapter_id=<?=$item['chapter_id']?>&chapter_so=<?=$item['chapter_so']?>">
                     <div class="item-thumbnail">
-                        <img src="/truyen-cover/assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
+                        <img src="./assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
                         <span class="background-5"><?=$item['chapter_so']?> <i class="fa-solid fa-bookmark"></i></span>
                     </div>
                 </a>
                 <a
-                    href="/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=<?=$item['truyen_id']?>&chapter_id=<?=$item['chapter_id']?>&chapter_so=<?=$item['chapter_so']?>">
+                    href="index.php?truyen-manga=noi-dung-chapter&truyen_id=<?=$item['truyen_id']?>&chapter_id=<?=$item['chapter_id']?>&chapter_so=<?=$item['chapter_so']?>">
                     <h3 class="item-title"><?=$item['truyen_ten']?></h3>
                 </a>
             </div>

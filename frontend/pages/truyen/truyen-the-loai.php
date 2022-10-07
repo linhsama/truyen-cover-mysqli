@@ -44,13 +44,13 @@
             <div class="section-description color-7"><b>Mô tả: </b><?=$data[0]['the_loai_mo_ta']?> </div>
             <?php foreach($data as $item):?>
                 <div class="item-medium">
-                <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+                <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
                     <div class="item-thumbnail">
-                        <img src="/truyen-cover/assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
+                        <img src="./assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
                         <span class="background-5"><?=thousand_format($item['truyen_luot_xem'])?><i class="fas fa-eye"></i></span>
                     </div>
                 </a>
-                <a href="/truyen-cover?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
+                <a href="index.php?truyen-manga=danh-sach-chapter&truyen_id=<?=$item['truyen_id']?>">
                     <h3 class="item-title"><?=$item['truyen_ten']?></h3>
                 </a>
             </div>

@@ -32,7 +32,6 @@
             case 'noi-dung-pre-next':
                 include_once(__DIR__ . '/../frontend/pages/chapter/noi-dung-pre-next.php'); 
                 break;
-
             case 'truyen-da-xem':
                 include_once(__DIR__ . '/../frontend/pages/truyen/truyen-da-xem.php'); 
                 break;

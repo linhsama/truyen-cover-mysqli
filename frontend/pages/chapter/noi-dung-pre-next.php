@@ -22,7 +22,7 @@
                     );
                 }
         $chapter_id = $data_chapter_id['chapter_id'];
-            echo "<script> location.href='/truyen-cover?truyen-manga=noi-dung-chapter&truyen_id=$truyen_id&chapter_id=$chapter_id&chapter_so=$chapter_so'</script>";
+            echo "<script> location.href='index.php?truyen-manga=noi-dung-chapter&truyen_id=$truyen_id&chapter_id=$chapter_id&chapter_so=$chapter_so'</script>";
         }
 
 ?>

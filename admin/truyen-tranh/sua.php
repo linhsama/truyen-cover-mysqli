@@ -1,31 +1,9 @@
-<?php session_start()?>
-
-<?php if(!isset($_SESSION['admin'])){
-		echo '<script> location.href="/truyen-cover/admin/auth/dang-nhap.php";</script>';
-    }
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cập nhật truyện tranh</title>
-
-    <!-- CSS dùng chung cho toàn bộ trang web -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-styles.php'); ?>
-</head>
-
-<body>
-    <!-- Mở kết nối -->
-    <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
-   
+<?php
     // kiểm tra get có id không
     if(isset($_GET['truyen_id'])){
         $truyen_id = $_GET['truyen_id'];
     }else{
-        echo '<script> location.href="/truyen-cover/loi.php"; </script>';
+        echo '<script> location.href="/../loi.php"; </script>';
     }
     // end kiểm tra get có id không
 
@@ -125,7 +103,6 @@ EOT;
             'msg' => 'Tác giả không được vượt quá ký tự'
         ];
     }
-
     if (empty($truyen_mo_ta)) {
         $errors['$truyen_mo_ta'][] = [
             'rule' => 'required',
@@ -140,39 +117,38 @@ EOT;
             'value' => $truyen_mo_ta,
             'msg' => 'Mô tả phải có ít nhất 3 ký tự'
         ];
-    } else if (!empty($truyen_mo_ta) && strlen($truyen_mo_ta) > 2000) {
+    }else if (!empty($truyen_mo_ta) && strlen($truyen_mo_ta) > 2000) {
         $errors['$truyen_mo_ta'][] = [
             'rule' => 'maxlenght',
             'rule_value' => 2000,
             'value' => $truyen_mo_ta,
             'msg' => "Mô tả không được vượt quá 2000 ký tự. Số ký tự vừa nhập là: ".strlen($truyen_mo_ta)
         ];
-    }
+} 
 } 
     // end check required và lenght
     ?>
 
 
-    <!-- cập nhật thông tin -->
-    <?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
-    <?php if( !isset($errors) || (empty($errors))): 
+<!-- cập nhật thông tin -->
+<?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
+<?php if( !isset($errors) || (empty($errors))): 
 
-     // Lấy thông tin file
-     $upload_dir = __DIR__ . "/../../assets/uploads/";
-     $ten_tap_tin = $data_old['truyen_anh_dai_dien'];
+ // Lấy thông tin file
 
-     // Kiểm tra file có tồn tại chưa
-     $url = getimagesize($upload_dir.$ten_tap_tin);
+    if(strlen($_FILES['truyen_anh_dai_dien']['name'])>0){
+    $path = __DIR__ . "/../../assets/uploads/".$data_old['truyen_anh_dai_dien'];
+    unlink($path);
+     
+    $upload_dir = __DIR__ . "/../../assets/uploads/truyen-tranh/";
+    $tentaptin = date('YmdHis').'_'.$_FILES['truyen_anh_dai_dien']['name'];
 
-     if (is_array($url)) {
-        // 2. Xóa dữ liệu trong data
-        unlink($upload_dir.$ten_tap_tin);
-     }
-     $upload_dir = __DIR__ . "/../../assets/uploads/truyen-tranh/";
-     $tentaptin = date('YmdHis').'_'.$_FILES['truyen_anh_dai_dien']['name'];
-     move_uploaded_file($_FILES['truyen_anh_dai_dien']['tmp_name'],$upload_dir.$tentaptin);
-     $ten_tap_tin = 'truyen-tranh/'.$tentaptin;
-
+    move_uploaded_file($_FILES['truyen_anh_dai_dien']['tmp_name'],$upload_dir.$tentaptin);
+    $ten_tap_tin = 'truyen-tranh/'.$tentaptin;
+ 
+    }else{
+        $ten_tap_tin = $data_old['truyen_anh_dai_dien'];
+    }
     $sql = <<<EOT
 		UPDATE truyen SET 
         truyen_ma = '$truyen_ma',
@@ -185,186 +161,177 @@ EOT;
         WHERE truyen_id = '$truyen_id';
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
-		echo '<script> location.href="/truyen-cover/admin/truyen-tranh/index.php?result=success";</script>';
+		echo '<script> location.href="index.php?direction=truyen-tranh&status=success";</script>';
     ?>
-    <?php endif; ?>
-    <?php endif; ?>
-    <!-- end cập nhật thông tin -->
+<?php endif; ?>
+<?php endif; ?>
+<!-- end cập nhật thông tin -->
 
-    <!-- navigation -->
-    <?php include_once(__DIR__ . '/../../frontend/partials/admin-sidebar.php'); ?>
-    <!-- end navigation -->
-
-    <!-- content -->
-    <section id="content">
-        <nav>
-            <i class='bx bx-menu'></i>
-        </nav>
-        <main>
-            <div class="head-title">
-                <div class="left">
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Quản lý truyện tranh</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active" href="/truyen-cover/admin/truyen-tranh/index.php">Danh sách truyện
-                                tranh</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active"
-                                href="/truyen-cover/admin/truyen-tranh/sua.php?truyen_id=<?=$data_old["truyen_id"]?>">Cập
-                                nhật truyện tranh</a>
-                        </li>
-                    </ul>
-                </div>
+<!-- content -->
+<section id="content">
+    <nav>
+        <i class='bx bx-menu'></i>
+    </nav>
+    <main>
+        <div class="head-title">
+            <div class="left">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Quản lý truyện tranh</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="index.php?direction=truyen-tranh">Danh sách truyện
+                            tranh</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active"
+                            href="index.php?direction=sua-truyen-tranh&truyen_id=<?=$data_old["truyen_id"]?>">Cập
+                            nhật truyện tranh</a>
+                    </li>
+                </ul>
             </div>
+        </div>
 
-            <div class="table-data">
-                <div class="index">
-                    <div class="head">
-                        <h3>Cập nhật truyện tranh</h3>
-                        <a href="truyen-the-loai.php?truyen_id=<?=$data_old['truyen_id']?>" class="btn btn-secondary"><i
-                                class="fa-solid fa-book-bible"></i> Cập nhật truyện thể loại
-                        </a>
-                        <a href="../chapter/index.php?truyen_id=<?=$data_old['truyen_id']?>" class="btn btn-primary"><i
-                                class="fa-solid fa-book-bible"></i> Cập nhật chapter
-                        </a>
+        <div class="table-data">
+            <div class="index">
+                <div class="head">
+                    <h3>Cập nhật truyện tranh</h3>
+                    <a href="truyen-the-loai.php?truyen_id=<?=$data_old['truyen_id']?>" class="btn btn-secondary"><i
+                            class="fa-solid fa-book-bible"></i> Cập nhật truyện thể loại
+                    </a>
+                    <a href="../chapter/index.php?truyen_id=<?=$data_old['truyen_id']?>" class="btn btn-primary"><i
+                            class="fa-solid fa-book-bible"></i> Cập nhật chapter
+                    </a>
+                </div>
+
+                <div class="add-update">
+                    <!-- tạo vùng hiển thị lỗi -->
+                    <?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
+                    <?php if( isset($errors) && (!empty($errors))): ?>
+                    <div id="errors-container" class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <ul>
+                            <?php foreach($errors as $fields):?>
+                            <?php foreach($fields as $field):?>
+                            <li><?php echo $field['msg'] ?></li>
+                            <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </ul>
                     </div>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                    <!-- end tạo vùng hiển thị lỗi -->
 
-                    <div class="add-update">
-                        <!-- tạo vùng hiển thị lỗi -->
-                        <?php if(isset($_POST['btn_add_truyen_tranh'])) : ?>
-                        <?php if( isset($errors) && (!empty($errors))): ?>
-                        <div id="errors-container" class="alert alert-danger alert-dismissible fade show mt-2"
-                            role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <ul>
-                                <?php foreach($errors as $fields):?>
-                                <?php foreach($fields as $field):?>
-                                <li><?php echo $field['msg'] ?></li>
-                                <?php endforeach; ?>
-                                <?php endforeach; ?>
-                            </ul>
+                    <!-- form nhập liệu -->
+                    <?php if(empty($data_old)): ?>
+                    <h1>Dữ liệu rỗng! <a href="index?result=error">Quay lại</a></h1>
+                    <?php else : ?>
+                    <form class="add-update-list" id="frm_update_truyen_tranh" action="" method="post"
+                        enctype="multipart/form-data">
+
+                        <div class="col">
+                            <label for="truyen_ma" class="form-label">Mã truyện</label>
+                            <input type="text" class="form-control" id="truyen_ma" name="truyen_ma"
+                                value=<?= $data_old['truyen_ma']?>>
                         </div>
-                        <?php endif; ?>
-                        <?php endif; ?>
-                        <!-- end tạo vùng hiển thị lỗi -->
+                        <div class="col">
+                            <label for="truyen_ten" class="form-label">Tên truyện</label>
+                            <input type="text" class="form-control" id="truyen_ten" name="truyen_ten"
+                                value=<?= $data_old['truyen_ten']?>>
+                        </div>
+                        <div class="col">
+                            <label for="truyen_tac_gia" class="form-label">Tác giả</label>
+                            <input type="text" class="form-control" id="truyen_tac_gia" name="truyen_tac_gia"
+                                value=<?= $data_old['truyen_tac_gia']?>>
+                        </div>
+                        <div class="col">
+                            <label for="truyen_mo_ta" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="truyen_mo_ta"
+                                name="truyen_mo_ta"><?= $data_old['truyen_mo_ta']?></textarea>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="truyen_anh_dai_dien">Hình ảnh</label>
+                                <input type="file" class="form-control" id="truyen_anh_dai_dien"
+                                    name="truyen_anh_dai_dien" accept=".jpg, .jpeg, .png, .gif" />
 
-                        <!-- form nhập liệu -->
-                        <?php if(empty($data_old)): ?>
-                        <h1>Dữ liệu rỗng! <a href="index?result=error">Quay lại</a></h1>
-                        <?php else : ?>
-                        <form class="add-update-list" id="frm_update_truyen_tranh" action="" method="post" enctype="multipart/form-data">
-
-                            <div class="col">
-                                <label for="truyen_ma" class="form-label">Mã truyện</label>
-                                <input type="text" class="form-control" id="truyen_ma" name="truyen_ma"
-                                    value=<?= $data_old['truyen_ma']?>>
-                            </div>
-                            <div class="col">
-                                <label for="truyen_ten" class="form-label">Tên truyện</label>
-                                <input type="text" class="form-control" id="truyen_ten" name="truyen_ten"
-                                    value=<?= $data_old['truyen_ten']?>>
-                            </div>
-                            <div class="col">
-                                <label for="truyen_tac_gia" class="form-label">Tác giả</label>
-                                <input type="text" class="form-control" id="truyen_tac_gia" name="truyen_tac_gia"
-                                    value=<?= $data_old['truyen_tac_gia']?>>
-                            </div>
-                            <div class="col">
-                                <label for="truyen_mo_ta" class="form-label">Mô tả</label>
-                                <textarea class="form-control" id="truyen_mo_ta"
-                                    name="truyen_mo_ta"><?= $data_old['truyen_mo_ta']?></textarea>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="truyen_anh_dai_dien">Hình ảnh</label>
-                                    <input type="file" class="form-control" id="truyen_anh_dai_dien"
-                                        name="truyen_anh_dai_dien" accept=".jpg, .jpeg, .png, .gif" />
-
-                                    <div class="preview-img-container text-center">
-                                        <img src="/truyen-cover/assets/uploads/<?=$data_old['truyen_anh_dai_dien'];?>"
-                                            id="preview-img" height="200px" />
-                                    </div>
+                                <div class="preview-img-container text-center">
+                                    <img src="../assets/uploads/<?=$data_old['truyen_anh_dai_dien'];?>" id="preview-img"
+                                        height="200px" />
                                 </div>
                             </div>
-                            <div class="col">
-                                <label for="truyen_tinh_trang" class="form-label">Tình trạng truyện</label>
-                                <select class="form-select form-control" id="truyen_tinh_trang"
-                                    name="truyen_tinh_trang">
-                                    <?php if($data_old['truyen_tinh_trang']==1) :?>
-                                    <option value="1">Đang cập nhật</option>
-                                    <option value="2">Hoàn thành</option>
-                                    <option value="3">Tạm ngừng</option>
-                                    <?php elseif($data_old['truyen_tinh_trang']==2) :?>
-                                    <option value="2">Hoàn thành</option>
-                                    <option value="1">Đang cập nhật</option>
-                                    <option value="3">Tạm ngừng</option>
-                                    <?php elseif($data_old['truyen_tinh_trang']==3) :?>
-                                    <option value="3">Tạm ngừng</option>
-                                    <option value="1">Đang cập nhật</option>
-                                    <option value="2">Hoàn thành</option>
-                                    <?php else:?>
-                                    <option value="1">Đang cập nhật</option>
-                                    <option value="2">Hoàn thành</option>
-                                    <option value="3">Tạm ngừng</option>
-                                    <?php endif?>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <label for="truyen_trang_thai" class="form-label">Trạng thái</label>
-                                <select class="form-select form-control" id="truyen_trang_thai"
-                                    name="truyen_trang_thai">
-                                    <?php if($data_old['truyen_trang_thai']==1) :?>
-                                    <option value="1">Công bố</option>
-                                    <option value="2">Ẩn</option>
-                                    <?php elseif($data_old['truyen_trang_thai']==2) :?>
-                                    <option value="2">Ẩn</option>
-                                    <option value="1">Công bố</option>
-                                    <?php else:?>
-                                    <option value="1">Công bố</option>
-                                    <option value="2">Ẩn</option>
-                                    <?php endif?>
-                                </select>
-                            </div>
-                            <br />
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary" id="btn_add_truyen_tranh"
-                                    name="btn_add_truyen_tranh"><i class="fa-solid fa-floppy-disk"></i> Lưu thông
-                                    tin</button>
-                            </div>
-                        </form>
-                        <?php endif?>
-                        <!-- end form nhập liệu -->
-                    </div>
+                        </div>
+                        <div class="col">
+                            <label for="truyen_tinh_trang" class="form-label">Tình trạng truyện</label>
+                            <select class="form-select form-control" id="truyen_tinh_trang" name="truyen_tinh_trang">
+                                <?php if($data_old['truyen_tinh_trang']==1) :?>
+                                <option value="1">Đang cập nhật</option>
+                                <option value="2">Hoàn thành</option>
+                                <option value="3">Tạm ngừng</option>
+                                <?php elseif($data_old['truyen_tinh_trang']==2) :?>
+                                <option value="2">Hoàn thành</option>
+                                <option value="1">Đang cập nhật</option>
+                                <option value="3">Tạm ngừng</option>
+                                <?php elseif($data_old['truyen_tinh_trang']==3) :?>
+                                <option value="3">Tạm ngừng</option>
+                                <option value="1">Đang cập nhật</option>
+                                <option value="2">Hoàn thành</option>
+                                <?php else:?>
+                                <option value="1">Đang cập nhật</option>
+                                <option value="2">Hoàn thành</option>
+                                <option value="3">Tạm ngừng</option>
+                                <?php endif?>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="truyen_trang_thai" class="form-label">Trạng thái</label>
+                            <select class="form-select form-control" id="truyen_trang_thai" name="truyen_trang_thai">
+                                <?php if($data_old['truyen_trang_thai']==1) :?>
+                                <option value="1">Công bố</option>
+                                <option value="2">Ẩn</option>
+                                <?php elseif($data_old['truyen_trang_thai']==2) :?>
+                                <option value="2">Ẩn</option>
+                                <option value="1">Công bố</option>
+                                <?php else:?>
+                                <option value="1">Công bố</option>
+                                <option value="2">Ẩn</option>
+                                <?php endif?>
+                            </select>
+                        </div>
+                        <br />
+                        <div class="col text-center">
+                            <button type="submit" class="btn btn-primary" id="btn_add_truyen_tranh"
+                                name="btn_add_truyen_tranh"><i class="fa-solid fa-floppy-disk"></i> Lưu thông
+                                tin</button>
+                        </div>
+                    </form>
+                    <?php endif?>
+                    <!-- end form nhập liệu -->
                 </div>
-        </main>
-    </section>
-    <!-- end content -->
+            </div>
+    </main>
+</section>
+<!-- end content -->
 
-    <!-- script -->
-    <?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
-    <script>
-    CKEDITOR.replace('truyen_mo_ta');
-    const reader = new FileReader();
-    const fileInput = document.getElementById("truyen_anh_dai_dien");
-    const img = document.getElementById("preview-img");
+<!-- script -->
+<?php include_once(__DIR__ . '/../../frontend/layouts/admin-scripts.php'); ?>
 
-    fileInput.addEventListener('change', e => {
-        const f = e.target.files[0];
-        reader.readAsDataURL(f);
-    })
+<script>
+CKEDITOR.replace('truyen_mo_ta');
+const reader = new FileReader();
+const fileInput = document.getElementById("truyen_anh_dai_dien");
+const img = document.getElementById("preview-img");
 
-    reader.onload = e => {
-        img.src = e.target.result;
-    }
-    </script>
-    <!-- end script -->
-</body>
+fileInput.addEventListener('change', e => {
+    const f = e.target.files[0];
+    reader.readAsDataURL(f);
+})
 
-</html>
+reader.onload = e => {
+    img.src = e.target.result;
+}
+</script>

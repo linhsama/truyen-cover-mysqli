@@ -162,7 +162,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
         <section>
             <div class="column-left manga-info">
                 <div class="manga-thumbnail">
-                    <img src="/truyen-cover/assets/uploads/<?=$data[0]['truyen_anh_dai_dien']?>">
+                    <img src="./assets/uploads/<?=$data[0]['truyen_anh_dai_dien']?>">
                 </div>
                 <h1 class="manga-title">
                     <?=$data[0]['chapter_ten']?>
@@ -204,7 +204,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
             <div class="column-right manga-description">
                 <span><?=$data[0]['truyen_mo_ta']?></span>
             </div>
-            <script src="/truyen-cover/assets/vendor/jquery/jquery.min.js"></script>
+            <script src="./assets/vendor/jquery/jquery.min.js"></script>
 
             <script>
             var check_thich = true;
@@ -216,10 +216,10 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                 if (user_tai_khoan_id == 0) {
                     let res = confirm("Vui lòng đăng nhập để sử dụng chức năng này");
                     if (res == true) {
-                        location.href = ("/truyen-cover/backend/auth/dang-nhap.php");
+                        location.href = ("./backend/auth/dang-nhap.php");
                     }
                 } else {
-                    $.post("/truyen-cover/frontend/pages/chapter/xu-ly-thich-theo-doi.php", {
+                    $.post("./frontend/pages/chapter/xu-ly-thich-theo-doi.php", {
                             btn_thich: "btn_thich",
                             user_tai_khoan_id: $("#user_tai_khoan_id").val(),
                             truyen_id: $("#truyen_id").val(),
@@ -243,10 +243,10 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                 if (user_tai_khoan_id == 0) {
                     let res = confirm("Vui lòng đăng nhập để sử dụng chức năng này");
                     if (res == true) {
-                        location.href = ("/truyen-cover/backend/auth/dang-nhap.php");
+                        location.href = ("./backend/auth/dang-nhap.php");
                     }
                 } else {
-                    $.post("/truyen-cover/frontend/pages/chapter/xu-ly-thich-theo-doi.php", {
+                    $.post("./frontend/pages/chapter/xu-ly-thich-theo-doi.php", {
                             btn_theo_doi: "btn_theo_doi",
                             user_tai_khoan_id: $("#user_tai_khoan_id").val(),
                             truyen_id: $("#truyen_id").val(),
@@ -276,7 +276,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                     <?php if($chapter_current > $data_chapter_so['chapter_min']):?>
                     <div class="button button-back">
                         <a
-                            href="/truyen-cover?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current-1?>">
+                            href="index.php?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current-1?>">
                             <i class="fas fa-arrow-left"></i>
                         </a>
                     </div>
@@ -288,7 +288,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                         <?php foreach ($data_chapter as $item_chapter):?>
 
                         <option
-                            value="/truyen-cover?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$item_chapter['chapter_so']?>">
+                            value="index.php?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$item_chapter['chapter_so']?>">
                             Chapter <?=$item_chapter['chapter_so']?>
                         </option>
                         <?php endforeach?>
@@ -296,7 +296,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                     <?php if($chapter_current < $data_chapter_so['chapter_max']):?>
                     <div class="button button-forward">
                         <a
-                            href="/truyen-cover?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current+1?>">
+                            href="index.php?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current+1?>">
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -307,7 +307,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
 
         <?php foreach ($data as $item) : ?>
         <div class="chapter-content text-center">
-            <img src="/truyen-cover/assets/uploads/<?=$item['chapter_noi_dung']?>" class="img-fluid">
+            <img src="./assets/uploads/<?=$item['chapter_noi_dung']?>" class="img-fluid">
         </div>
         <?php endforeach?>
 
@@ -316,7 +316,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                 <?php if($chapter_current > $data_chapter_so['chapter_min']):?>
                 <div class="button button-back">
                     <a
-                        href="/truyen-cover?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current-1?>">
+                        href="index.php?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current-1?>">
                         <i class="fas fa-arrow-left"></i>
                     </a>
                 </div>
@@ -328,7 +328,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                     <?php foreach ($data_chapter as $item_chapter):?>
 
                     <option
-                        value="/truyen-cover?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$item_chapter['chapter_so']?>">
+                        value="index.php?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$item_chapter['chapter_so']?>">
                         Chapter <?=$item_chapter['chapter_so']?>
                     </option>
                     <?php endforeach?>
@@ -336,7 +336,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                 <?php if($chapter_current < $data_chapter_so['chapter_max']):?>
                 <div class="button button-forward">
                     <a
-                        href="/truyen-cover?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current+1?>">
+                        href="index.php?truyen-manga=noi-dung-pre-next&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$chapter_current+1?>">
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
