@@ -1,6 +1,6 @@
 <?php 
 
-    if(isset($_GET['key'])){
+    if(isset($_GET['tim-kiem'])){
         include_once(__DIR__ . '/../frontend/pages/truyen/truyen-tim-kiem.php'); 
     }
     if(isset($_GET['the-loai'])){
@@ -41,9 +41,6 @@
             case 'truyen-dang-theo-doi':
                 include_once(__DIR__ . '/../frontend/pages/truyen/truyen-dang-theo-doi.php'); 
                 break;
-            case 'tim-kiem':
-                    include_once(__DIR__ . '/../frontend/pages/truyen/truyen-tim-kiem.php'); 
-                    break;
         }
     }
     else{
