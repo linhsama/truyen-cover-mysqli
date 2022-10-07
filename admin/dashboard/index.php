@@ -112,7 +112,7 @@ EOT;
                 <div class="item-poster">
                     <div class="box-title-3 background-<?=$num?>"><i class="fa-solid fa-star"></i> TOP <?=$num?></div>
                     <div class="item-thumbnail">
-                        <img src="/truyen-cover/assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
+                        <img src="../assets/uploads/<?=$item['truyen_anh_dai_dien']?>">
                     </div>
                     <div class="box-title-4"><?=$item['truyen_ten']?></div>
                     <div class="background-1"><i class="fas fa-eye"></i> <?=thousand_format($item['truyen_luot_xem'])?>
