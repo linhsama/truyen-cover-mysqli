@@ -1,4 +1,5 @@
 /* css dùng chung cho cả web */
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -56,11 +57,9 @@ hr {
     border-top: 1px solid #ddd
 }
 
-
 .hidden {
     display: none !important
 }
-
 
 .floating-action {
     position: fixed;
@@ -145,7 +144,7 @@ hr {
     background: #00abfd
 }
 
-.section-description{
+.section-description {
     font-size: 14px;
     margin-left: 20px;
     border-left: 5px coral solid;
@@ -154,6 +153,6 @@ hr {
     margin-bottom: 20px;
 }
 
-.container-cs.container-the-loai{
+.container-cs.container-the-loai {
     min-height: fit-content;
 }
