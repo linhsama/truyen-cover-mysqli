@@ -30,7 +30,7 @@ EOT;
                     </div>
                 </div>
                 <div class="navbar-item has-sub">
-                    <a href="#"><i class="fas fa-list"></i>Danh Sách</a>
+                    <a href="index.php?truyen-manga=tat-ca-truyen-manga"><i class="fas fa-list"></i>Danh Sách</a>
                     <ul class="navbar-item-sub">
                         <div class="menu-country">
                             <li><a href="index.php?truyen-manga=tat-ca-truyen-manga">Manga</a></li>
