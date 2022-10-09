@@ -26,14 +26,14 @@ CREATE TABLE IF NOT EXISTS `chapter` (
   `chapter_ten` mediumtext COLLATE utf8_unicode_ci NOT NULL,
   `chapter_ngay_cap_nhat` datetime NOT NULL DEFAULT current_timestamp(),
   `chapter_trang_thai` tinyint(4) NOT NULL COMMENT '#1: Hiện, #2: Ẩn',
-  `chapter_moi` tinytext COLLATE utf8_unicode_ci DEFAULT 1 COMMENT '#1: Mới cập nhật, #2: Chapter cũ',
+  `chapter_moi` tinytext COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '#1: Mới cập nhật, #2: Chapter cũ',
   `truyen_id` int(11) NOT NULL,
   PRIMARY KEY (`chapter_id`),
   KEY `FK_truyen_chapter` (`truyen_id`),
   CONSTRAINT `FK_truyen_chapter` FOREIGN KEY (`truyen_id`) REFERENCES `truyen` (`truyen_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.chapter: ~24 rows (approximately)
+-- Dumping data for table heroku_9545e73caaf405a.chapter: ~23 rows (approximately)
 INSERT INTO `chapter` (`chapter_id`, `chapter_so`, `chapter_ten`, `chapter_ngay_cap_nhat`, `chapter_trang_thai`, `chapter_moi`, `truyen_id`) VALUES
 	(48, 1, 'chapter 1', '2022-10-08 01:21:56', 1, '0', 15),
 	(49, 2, 'chapter 2', '2022-10-08 01:22:03', 1, '0', 15),
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `chapter_noi_dung` (
   CONSTRAINT `FK_chapter_chapter-noi-dung` FOREIGN KEY (`chapter_id`) REFERENCES `chapter` (`chapter_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1914 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.chapter_noi_dung: ~629 rows (approximately)
+-- Dumping data for table heroku_9545e73caaf405a.chapter_noi_dung: ~649 rows (approximately)
 INSERT INTO `chapter_noi_dung` (`chapter_noi_dung_id`, `chapter_noi_dung`, `chapter_id`) VALUES
 	(1205, 'truyen-tranh/20221007202226_002.jpg', 48),
 	(1206, 'truyen-tranh/20221007202226_003.jpg', 48),
@@ -831,7 +831,7 @@ CREATE TABLE IF NOT EXISTS `truyen` (
   PRIMARY KEY (`truyen_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.truyen: ~7 rows (approximately)
+-- Dumping data for table heroku_9545e73caaf405a.truyen: ~8 rows (approximately)
 INSERT INTO `truyen` (`truyen_id`, `truyen_ma`, `truyen_ten`, `truyen_tac_gia`, `truyen_mo_ta`, `truyen_anh_dai_dien`, `truyen_tinh_trang`, `truyen_luot_xem`, `truyen_ngay_dang`, `truyen_trang_thai`) VALUES
 	(15, 'ONEPIECE', 'ONE PIECE', 'Oda', '<p>One Piece l&agrave; c&acirc;u truyện kể về Luffy v&agrave; c&aacute;c thuyền vi&ecirc;n của m&igrave;nh. Khi c&ograve;n nhỏ, Luffy ước mơ trở th&agrave;nh Vua Hải Tặc. Cuộc sống của cậu b&eacute; thay đổi khi cậu v&ocirc; t&igrave;nh c&oacute; được sức mạnh c&oacute; thể co d&atilde;n như cao su, nhưng đổi lại, cậu kh&ocirc;ng bao giờ c&oacute; thể bơi được nữa. Giờ đ&acirc;y, Luffy c&ugrave;ng những người bạn hải tặc của m&igrave;nh ra khơi t&igrave;m kiếm kho b&aacute;u One Piece, kho b&aacute;u vĩ đại nhất tr&ecirc;n thế giới. Trong One Piece, mỗi nh&acirc;n vật trong đều mang một n&eacute;t c&aacute; t&iacute;nh đặc sắc kết hợp c&ugrave;ng c&aacute;c t&igrave;nh huống kịch t&iacute;nh, lối dẫn truyện hấp dẫn chứa đầy c&aacute;c bước ngoặt bất ngờ v&agrave; cũng v&ocirc; c&ugrave;ng h&agrave;i hước đ&atilde; biến One Piece trở th&agrave;nh một trong những bộ truyện nổi tiếng nhất kh&ocirc;ng thể bỏ qua.<br />\r\nH&atilde;y đọc One Piece để h&ograve;a m&igrave;nh v&agrave;o một thế giới của những hải tặc rộng lớn, đầy m&agrave;u sắc, sống động v&agrave; th&uacute; vị, c&ugrave;ng đắm ch&igrave;m với những nh&acirc;n vật y&ecirc;u tự do, tr&ecirc;n h&agrave;nh tr&igrave;nh đi t&igrave;m ước mơ của m&igrave;nh.</p>\r\n', 'truyen-tranh/20221007202027_001.jpg', 1, 1236, '2022-10-08 01:20:27', 1),
 	(16, 'CONAN', 'CONAN', 'Gosho Aoyama', '<p>Mở đầu c&acirc;u truyện, cậu học sinh trung học 16 tuổi Shinichi Kudo bị biến th&agrave;nh cậu b&eacute; Conan Edogawa. Shinichi trong phần đầu của Th&aacute;m tử lừng danh Conan được mi&ecirc;u tả l&agrave; một th&aacute;m tử học đường. Trong một lần đi chơi c&ocirc;ng vi&ecirc;n &quot;Miền Nhiệt đới&quot; với c&ocirc; bạn từ thuở nhỏ (cũng l&agrave; bạn g&aacute;i) Ran Mori , cậu bị d&iacute;nh v&agrave;o vụ &aacute;n một h&agrave;nh kh&aacute;ch tr&ecirc;n Chuyến t&agrave;u tốc h&agrave;nh trong c&ocirc;ng vi&ecirc;n, Kishida , bị giết trong một vụ &aacute;n cắt đầu r&ugrave;ng rợn. Cậu đ&atilde; l&agrave;m s&aacute;ng tỏ vụ &aacute;n v&agrave; tr&ecirc;n đường về nh&agrave;, chứng kiến một vụ l&agrave;m ăn mờ &aacute;m của những người đ&agrave;n &ocirc;ng mặc to&agrave;n đồ đen. Kudo bị ph&aacute;t hiện, bị đ&aacute;nh ngất sau đ&oacute; những người đ&agrave;n &ocirc;ng &aacute;o đen đ&atilde; cho cậu uống một thứ thuốc độc chưa qua thử nghiệm l&agrave; Apotoxin-4869 (APTX4869) với mục đ&iacute;ch thủ ti&ecirc;u cậu. Tuy nhi&ecirc;n chất độc đ&atilde; kh&ocirc;ng giết chết Kudo. Khi tỉnh lại, cậu b&agrave;ng ho&agrave;ng nhận thấy th&acirc;n thể m&igrave;nh đ&atilde; bị teo nhỏ trong h&igrave;nh dạng của một cậu học sinh tiểu học....</p>\r\n', 'truyen-tranh/20221007203228_001.jpg', 1, 1022, '2022-10-08 01:32:28', 1),
@@ -854,7 +854,7 @@ CREATE TABLE IF NOT EXISTS `truyen_the_loai` (
   CONSTRAINT `FK_truyen_truyen-the-loai` FOREIGN KEY (`truyen_id`) REFERENCES `truyen` (`truyen_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.truyen_the_loai: ~11 rows (approximately)
+-- Dumping data for table heroku_9545e73caaf405a.truyen_the_loai: ~12 rows (approximately)
 INSERT INTO `truyen_the_loai` (`truyen_the_loai_id`, `truyen_id`, `the_loai_id`) VALUES
 	(33, 15, 16),
 	(34, 15, 17),
