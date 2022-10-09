@@ -37,7 +37,7 @@ label {
 }
 
 .item-poster .item-thumbnail img {
-    width: fit-content;
+    width: -webkit-fill-available;
 }
 
 .box-title-1 {
