@@ -39,7 +39,8 @@ body {
 @media(min-width:1280px) {
     .container-cs,
     .container-lm {
-        width: 1105px
+        width: 1105px;
+        margin: 40px auto !important;
     }
 }
 
