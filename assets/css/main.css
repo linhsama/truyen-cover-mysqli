@@ -70,6 +70,7 @@ body {
 @media(min-width:1024px) and (max-width:1279px) {
     .container-cs {
         width: 982px;
+        margin: 40px auto !important;
     }
 }
 
