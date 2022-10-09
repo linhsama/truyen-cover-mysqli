@@ -6,7 +6,7 @@
         $conn = mysqli_connect('localhost', 'root', '', 'heroku_9545e73caaf405a') or die('Xin lỗi, database không kết nối được.');
     }
 
-    // $conn = mysqli_connect('localhost', 'root', '', 'heroku_9545e73caaf405a') or die('Xin lỗi, database không kết nối được.');
+     $conn = mysqli_connect('localhost', 'root', '', 'heroku_9545e73caaf405a') or die('Xin lỗi, database không kết nối được.');
 
     // Tùy chỉnh kết nối
     // Set charset là utf-8 đối với kết nối này. Dùng để gõ tiếng Việt, Nhật, Thái, Trung Quốc ...

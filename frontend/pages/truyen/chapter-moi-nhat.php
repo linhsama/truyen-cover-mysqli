@@ -31,7 +31,7 @@
         }
 ?>
 <a href="index.php?truyen-manga=tat-ca-truyen-da-hoan-thanh">
-    <div class="section-title color-5">CHAPTER MỚI CẬP NHẬT</div>
+    <div class="section-title color-5">CHAPTER MỚI</div>
 </a>
 <?php foreach($data_chapter_moi as $item):?>
 <?php if(!empty($item['truyen_id'])):?>

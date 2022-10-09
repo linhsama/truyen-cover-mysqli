@@ -2,11 +2,9 @@
 
     if(isset($_GET['tim-kiem'])){
         include_once(__DIR__ . '/../frontend/pages/truyen/truyen-tim-kiem.php'); 
-    }
-    if(isset($_GET['the-loai'])){
+    }else if(isset($_GET['the-loai'])){
         include_once(__DIR__ . '/../frontend/pages/truyen/truyen-the-loai.php'); 
-    }
-    if(isset($_GET['truyen-manga'])){
+    }else if(isset($_GET['truyen-manga'])){
         switch($_GET['truyen-manga']){
             case 'danh-sach-chapter':
                 include_once(__DIR__ . '/../frontend/pages/chapter/danh-sach-chapter.php'); 

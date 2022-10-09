@@ -168,11 +168,11 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                     <?=$data[0]['chapter_ten']?>
                 </h1>
                 <div class="manga-author">
-                    <label>Tác giả</label></label>
+                    <label>Tác giả: </label></label>
                     <span><?=$data[0]['truyen_tac_gia']?></span>
                 </div>
                 <div class="manga-status">
-                    <label>Tình trạng</label>
+                    <label>Tình trạng: </label>
                     <span>
                         <?php 
                         if($data[0]['truyen_tinh_trang'] == 1){
@@ -186,7 +186,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                     </span>
                 </div>
                 <div class="manga-luot_xems">
-                    <label>Lượt đọc</label>
+                    <label>Lượt đọc: </label>
                     <span><?=thousand_format($data[0]['truyen_luot_xem'])?></span>
                 </div>
 

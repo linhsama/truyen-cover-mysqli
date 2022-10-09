@@ -13,46 +13,6 @@
     <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
     <!-- toasty -->
     <link rel="stylesheet" href="../assets/vendor/toasty/dist/toasty.min.css" type="text/css" />
-       <style>
-    #user-dang-nhap {
-        width: 100vw;
-        height: 100vh;
-        position: relative;
-
-    }
-
-    #user-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .user-title {
-        border-bottom: 3px red solid;
-        margin: 20px;
-        padding: 5px;
-        font-weight: bold;
-    }
-
-    .box {
-        background: aliceblue;
-        padding: 10px;
-        box-shadow: 17px 19px 56px rgb(0 123 255 / 14%);
-        border-radius: 10px;
-        opacity: 0.9;
-    }
-
-    input.form-control {
-        height: 40px !important;
-        font-size: 14px;
-    }
-
-    .backgound {
-        background-image: url(../assets/background.png);
-        background-position: center;
-    }
-    </style>
 </head>
 
 <body class="backgound">
