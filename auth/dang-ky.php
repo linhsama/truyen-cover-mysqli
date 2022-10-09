@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
     <!-- toasty -->
     <link rel="stylesheet" href="../assets/vendor/toasty/dist/toasty.min.css" type="text/css" />
-    <style>
+       <style>
     #user-dang-nhap {
         width: 100vw;
         height: 100vh;
@@ -22,8 +22,6 @@
     }
 
     #user-center {
-        width: 500px;
-        height: 500px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -38,19 +36,26 @@
     }
 
     .box {
-        border: 1px dotted;
+        background: aliceblue;
         padding: 10px;
         box-shadow: 17px 19px 56px rgb(0 123 255 / 14%);
+        border-radius: 10px;
+        opacity: 0.9;
     }
 
     input.form-control {
         height: 40px !important;
         font-size: 14px;
     }
+
+    .backgound {
+        background-image: url(../assets/background.png);
+        background-position: center;
+    }
     </style>
 </head>
 
-<body>
+<body class="backgound">
     <!-- body -->
     <div class="main-container">
         <?php 
@@ -71,13 +76,13 @@
 
                 if(strlen($ten_hien_thi)<3 || strlen($ten_hien_thi)>20){
                     $check = false;
-                    $msg = "Tên hiển thị phải lớn hơn 3 và nhỏ hơn 20 ký tự";
-                }elseif(strlen($ten_tai_khoan)<3 || strlen($ten_tai_khoan)>20){
+                    $msg = "Tên hiển thị phải lớn hơn 3 ký tự";
+                }elseif(strlen($ten_tai_khoan)<3){
                     $check = false;
-                    $msg = "Tên tài khoản phải lớn hơn 3 và nhỏ hơn 20 ký tự";
-                }elseif(strlen($_POST['mat_khau'])<6 || strlen($_POST['mat_khau'])>20){
+                    $msg = "Tên tài khoản phải lớn hơn 3 ký tự";
+                }elseif(strlen($_POST['mat_khau'])<6){
                     $check = false;
-                    $msg = "Mật khẩu phải lớn hơn 6 và nhỏ hơn 20 ký tự";
+                    $msg = "Mật khẩu phải lớn hơn 6 ký tự";
                 }else{
                     include_once(__DIR__ . '../../backend/dbconnect.php'); 
                     $sql_check = <<<EOT

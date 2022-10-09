@@ -26,36 +26,39 @@ CREATE TABLE IF NOT EXISTS `chapter` (
   `chapter_ten` mediumtext COLLATE utf8_unicode_ci NOT NULL,
   `chapter_ngay_cap_nhat` datetime NOT NULL DEFAULT current_timestamp(),
   `chapter_trang_thai` tinyint(4) NOT NULL COMMENT '#1: Hiện, #2: Ẩn',
+  `chapter_moi` tinytext COLLATE utf8_unicode_ci DEFAULT 1 COMMENT '#1: Mới cập nhật, #2: Chapter cũ',
   `truyen_id` int(11) NOT NULL,
   PRIMARY KEY (`chapter_id`),
   KEY `FK_truyen_chapter` (`truyen_id`),
   CONSTRAINT `FK_truyen_chapter` FOREIGN KEY (`truyen_id`) REFERENCES `truyen` (`truyen_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.chapter: ~22 rows (approximately)
-INSERT INTO `chapter` (`chapter_id`, `chapter_so`, `chapter_ten`, `chapter_ngay_cap_nhat`, `chapter_trang_thai`, `truyen_id`) VALUES
-	(48, 1, 'chapter 1', '2022-10-08 01:21:56', 1, 15),
-	(49, 2, 'chapter 2', '2022-10-08 01:22:03', 1, 15),
-	(50, 3, 'chapter 3', '2022-10-08 01:22:08', 1, 15),
-	(51, 4, 'chapter 4', '2022-10-08 01:26:28', 1, 15),
-	(52, 1, 'chapter 1', '2022-10-08 01:32:48', 1, 16),
-	(53, 2, 'chapter 2', '2022-10-08 01:32:55', 1, 16),
-	(54, 3, 'chapter 3', '2022-10-08 01:33:00', 1, 16),
-	(55, 1, 'chapter 1', '2022-10-08 01:38:13', 1, 17),
-	(56, 2, 'chapter 2', '2022-10-08 01:38:18', 1, 17),
-	(57, 3, 'chapter 3', '2022-10-08 01:38:23', 1, 17),
-	(58, 1, 'chapter 1', '2022-10-08 01:44:53', 1, 18),
-	(59, 2, 'chapter 2', '2022-10-08 01:44:57', 1, 18),
-	(60, 3, 'chapter 3', '2022-10-08 01:45:01', 1, 18),
-	(61, 1, 'chapter 1', '2022-10-08 01:49:34', 1, 19),
-	(62, 2, 'chapter 2', '2022-10-08 01:49:38', 1, 19),
-	(63, 3, 'chapter 3', '2022-10-08 01:49:45', 1, 19),
-	(64, 1, 'chapter 1', '2022-10-08 01:53:00', 1, 20),
-	(65, 2, 'chapter 2', '2022-10-08 01:54:40', 1, 20),
-	(66, 3, 'chapter 3', '2022-10-08 01:54:45', 1, 20),
-	(67, 1, 'chapter 1', '2022-10-08 02:16:15', 1, 21),
-	(68, 2, 'chapter 2', '2022-10-08 02:16:19', 1, 21),
-	(69, 3, 'chapter 3', '2022-10-08 02:16:22', 1, 21);
+-- Dumping data for table heroku_9545e73caaf405a.chapter: ~24 rows (approximately)
+INSERT INTO `chapter` (`chapter_id`, `chapter_so`, `chapter_ten`, `chapter_ngay_cap_nhat`, `chapter_trang_thai`, `chapter_moi`, `truyen_id`) VALUES
+	(48, 1, 'chapter 1', '2022-10-08 01:21:56', 1, '0', 15),
+	(49, 2, 'chapter 2', '2022-10-08 01:22:03', 1, '0', 15),
+	(50, 3, 'chapter 3', '2022-10-08 01:22:08', 1, '0', 15),
+	(51, 4, 'chapter 4', '2022-10-08 01:26:28', 1, '1', 15),
+	(52, 1, 'chapter 1', '2022-10-08 01:32:48', 1, '0', 16),
+	(53, 2, 'chapter 2', '2022-10-08 01:32:55', 1, '0', 16),
+	(54, 3, 'chapter 3', '2022-10-08 01:33:00', 1, '1', 16),
+	(55, 1, 'chapter 1', '2022-10-08 01:38:13', 1, '0', 17),
+	(56, 2, 'chapter 2', '2022-10-08 01:38:18', 1, '0', 17),
+	(57, 3, 'chapter 3', '2022-10-08 01:38:23', 1, '1', 17),
+	(58, 1, 'chapter 1', '2022-10-08 01:44:53', 1, '0', 18),
+	(59, 2, 'chapter 2', '2022-10-08 01:44:57', 1, '0', 18),
+	(60, 3, 'chapter 3', '2022-10-08 01:45:01', 1, '1', 18),
+	(61, 1, 'chapter 1', '2022-10-08 01:49:34', 1, '0', 19),
+	(62, 2, 'chapter 2', '2022-10-08 01:49:38', 1, '0', 19),
+	(63, 3, 'chapter 3', '2022-10-08 01:49:45', 1, '1', 19),
+	(64, 1, 'chapter 1', '2022-10-08 01:53:00', 1, '0', 20),
+	(65, 2, 'chapter 2', '2022-10-08 01:54:40', 1, '0', 20),
+	(66, 3, 'chapter 3', '2022-10-08 01:54:45', 1, '1', 20),
+	(67, 1, 'chapter 1', '2022-10-08 02:16:15', 1, '0', 21),
+	(68, 2, 'chapter 2', '2022-10-08 02:16:19', 1, '0', 21),
+	(69, 3, 'chapter 3', '2022-10-08 02:16:22', 1, '1', 21),
+	(70, 1, 'chapter', '2022-10-09 12:08:36', 1, '0', 22),
+	(71, 2, 'chapter 2', '2022-10-09 12:10:55', 1, '1', 22);
 
 -- Dumping structure for table heroku_9545e73caaf405a.chapter_noi_dung
 CREATE TABLE IF NOT EXISTS `chapter_noi_dung` (
@@ -65,9 +68,9 @@ CREATE TABLE IF NOT EXISTS `chapter_noi_dung` (
   PRIMARY KEY (`chapter_noi_dung_id`),
   KEY `FK_chapter_chapter-noi-dung` (`chapter_id`),
   CONSTRAINT `FK_chapter_chapter-noi-dung` FOREIGN KEY (`chapter_id`) REFERENCES `chapter` (`chapter_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1894 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1914 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.chapter_noi_dung: ~689 rows (approximately)
+-- Dumping data for table heroku_9545e73caaf405a.chapter_noi_dung: ~629 rows (approximately)
 INSERT INTO `chapter_noi_dung` (`chapter_noi_dung_id`, `chapter_noi_dung`, `chapter_id`) VALUES
 	(1205, 'truyen-tranh/20221007202226_002.jpg', 48),
 	(1206, 'truyen-tranh/20221007202226_003.jpg', 48),
@@ -757,7 +760,27 @@ INSERT INTO `chapter_noi_dung` (`chapter_noi_dung_id`, `chapter_noi_dung`, `chap
 	(1890, 'truyen-tranh/20221007211701_027.jpg', 69),
 	(1891, 'truyen-tranh/20221007211701_028.jpg', 69),
 	(1892, 'truyen-tranh/20221007211701_029.jpg', 69),
-	(1893, 'truyen-tranh/20221007211701_030.jpg', 69);
+	(1893, 'truyen-tranh/20221007211701_030.jpg', 69),
+	(1894, 'truyen-tranh/20221009070959_004.jpg', 70),
+	(1895, 'truyen-tranh/20221009070959_005.jpg', 70),
+	(1896, 'truyen-tranh/20221009070959_006.jpg', 70),
+	(1897, 'truyen-tranh/20221009070959_007.jpg', 70),
+	(1898, 'truyen-tranh/20221009071000_008.jpg', 70),
+	(1899, 'truyen-tranh/20221009071000_009.jpg', 70),
+	(1900, 'truyen-tranh/20221009071000_010.jpg', 70),
+	(1901, 'truyen-tranh/20221009071000_011.jpg', 70),
+	(1902, 'truyen-tranh/20221009071914_002.jpg', 71),
+	(1903, 'truyen-tranh/20221009071914_001.jpg', 71),
+	(1904, 'truyen-tranh/20221009071914_003.jpg', 71),
+	(1905, 'truyen-tranh/20221009071914_004.jpg', 71),
+	(1906, 'truyen-tranh/20221009071914_005.jpg', 71),
+	(1907, 'truyen-tranh/20221009071914_006.jpg', 71),
+	(1908, 'truyen-tranh/20221009071914_007.jpg', 71),
+	(1909, 'truyen-tranh/20221009071914_008.jpg', 71),
+	(1910, 'truyen-tranh/20221009071914_009.jpg', 71),
+	(1911, 'truyen-tranh/20221009071915_010.jpg', 71),
+	(1912, 'truyen-tranh/20221009071915_011.jpg', 71),
+	(1913, 'truyen-tranh/20221009071915_012.jpg', 71);
 
 -- Dumping structure for table heroku_9545e73caaf405a.tai_khoan
 CREATE TABLE IF NOT EXISTS `tai_khoan` (
@@ -775,7 +798,7 @@ INSERT INTO `tai_khoan` (`tai_khoan_id`, `ten_hien_thi`, `ten_tai_khoan`, `mat_k
 	(13, 'admin', 'admin', '4297f44b13955235245b2497399d7a93', 0, 1),
 	(14, 'mod', 'mod', '4297f44b13955235245b2497399d7a93', 1, 1),
 	(15, 'user1', 'user1', '4297f44b13955235245b2497399d7a93', 2, 1),
-	(16, 'user1', 'user1', '4297f44b13955235245b2497399d7a93', 2, 1);
+	(16, 'user2', 'user2', '4297f44b13955235245b2497399d7a93', 2, 1);
 
 -- Dumping structure for table heroku_9545e73caaf405a.the_loai
 CREATE TABLE IF NOT EXISTS `the_loai` (
@@ -785,7 +808,7 @@ CREATE TABLE IF NOT EXISTS `the_loai` (
   PRIMARY KEY (`the_loai_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.the_loai: ~5 rows (approximately)
+-- Dumping data for table heroku_9545e73caaf405a.the_loai: ~4 rows (approximately)
 INSERT INTO `the_loai` (`the_loai_id`, `the_loai_ten`, `the_loai_mo_ta`) VALUES
 	(16, 'Hành động', 'Hành động'),
 	(17, 'Phiêu lưu', 'Phiêu lưu'),
@@ -806,7 +829,7 @@ CREATE TABLE IF NOT EXISTS `truyen` (
   `truyen_ngay_dang` datetime NOT NULL DEFAULT current_timestamp(),
   `truyen_trang_thai` tinyint(4) NOT NULL COMMENT '#1: Hiện, #2: Ẩn',
   PRIMARY KEY (`truyen_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Dumping data for table heroku_9545e73caaf405a.truyen: ~7 rows (approximately)
 INSERT INTO `truyen` (`truyen_id`, `truyen_ma`, `truyen_ten`, `truyen_tac_gia`, `truyen_mo_ta`, `truyen_anh_dai_dien`, `truyen_tinh_trang`, `truyen_luot_xem`, `truyen_ngay_dang`, `truyen_trang_thai`) VALUES
@@ -816,7 +839,8 @@ INSERT INTO `truyen` (`truyen_id`, `truyen_ma`, `truyen_ten`, `truyen_tac_gia`, 
 	(18, 'TOKYO卍REVENGERS', 'TOKYO卍REVENGERS', 'Wakui Ken', '<p>Takemichi, thanh ni&ecirc;n thất nghiệp c&ograve;n trinh, được biết rằng người con g&aacute;i đầu ti&ecirc;n v&agrave; cũng l&agrave; duy nhất cho đến b&acirc;y giờ m&agrave; anh hẹn h&ograve; từ trung học đ&atilde; chết. Sau một vụ tai nạn, anh ta thấy m&igrave;nh được quay về những ng&agrave;y cấp hai. Anh ta thề sẽ thay đổi tương lai v&agrave; giữ lấy người con g&aacute;i ấy, để l&agrave;m việc đ&oacute;, anh ta quyết định sẽ vươn l&ecirc;n l&agrave;m tr&ugrave;m băng đảng kh&eacute;t tiếng nhất ở v&ugrave;ng Kantou. Live-Action Movie c&ocirc;ng chiếu ng&agrave;y 09/10/2020. Anime l&ecirc;n s&oacute;ng năm 2021!!</p>\r\n', 'truyen-tranh/20221007204352_001.jpg', 1, 402, '2022-10-08 01:43:52', 1),
 	(19, 'BLACKCLOVER', 'BLACK CLOVER', 'Tabata Yuuki', '<p>Aster v&agrave; Yuno l&agrave; hai đứa trẻ bị bỏ rơi ở nh&agrave; thờ v&agrave; c&ugrave;ng nhau lớn l&ecirc;n tại đ&oacute;. Khi c&ograve;n nhỏ, ch&uacute;ng đ&atilde; hứa với nhau xem ai sẽ trở th&agrave;nh Ma ph&aacute;p vương tiếp theo. Thế nhưng, khi cả hai lớn l&ecirc;n, mọi s&ocirc; chuyện đ&atilde; thay đổi. Yuno l&agrave; thi&ecirc;n t&agrave;i ma ph&aacute;p với sức mạnh tuyệt đỉnh trong khi Aster lại kh&ocirc;ng thể sử dụng ma ph&aacute;p v&agrave; cố gắng b&ugrave; đắp bằng thể lực. Khi cả hai được nhận s&aacute;ch ph&eacute;p v&agrave;o tuổi 15, Yuno đ&atilde; được ban cuốn s&aacute;ch ph&eacute;p cỏ bốn b&aacute; (trong khi đa số l&agrave; cỏ ba l&aacute;) m&agrave; Aster lại kh&ocirc;ng c&oacute; cuốn n&agrave;o. Tuy nhi&ecirc;n, khi Yuno bị đe dọa, sự thật về sức mạnh của Aster đ&atilde; được giải m&atilde;- cậu ta được ban cuốn s&aacute;ch ph&eacute;p cỏ năm l&aacute;, cuốn s&aacute;ch ph&aacute; ma thuật m&agrave;u đen. Bấy giờ, hai người bạn trẻ đang hướng ra thế giới, c&ugrave;ng chung mục ti&ecirc;u</p>\r\n', 'truyen-tranh/20221007204917_001.jpg', 1, 512, '2022-10-08 01:49:17', 1),
 	(20, 'SLIME', 'TENSEI SHITARA SLIME DATTA KEN', 'Kawakami Taiki, Fuse', '<p>Một manga kh&aacute;c chuyển thể từ light novel đang hot ở nhật. Một anh ch&agrave;ng bị t&ecirc;n cướp đ&acirc;m chết khi đang gặp vợ chưa cưới của đồng nghiệp. Khi đang thoi th&oacute;p trước khi chết, người đầy m&aacute;u, anh ta nghe được một tiếng n&oacute;i kỳ lạ. Giọng n&oacute;i ấy chuyển thể sự tiếc nuối của anh ch&agrave;ng v&igrave; vẫn c&ograve;n t&acirc;n trước khi đi v&agrave; ban cho anh ta chi&ecirc;u thức đặc biệt [ti&ecirc;n nh&acirc;n vĩ đại]. Liệu đ&acirc;y c&oacute; phải l&agrave; tr&ograve; đ&ugrave;a?</p>\r\n', 'truyen-tranh/20221007205238_001.jpg', 1, 672, '2022-10-08 01:52:38', 1),
-	(21, 'FAIRYTAIL', 'FAIRY TAIL', ' Mashima Hiro', '<p>Rồi một ng&agrave;y c&ocirc; đến thị trấn Harujion, c&ocirc; đ&atilde; gặp Natsu, một thiếu ni&ecirc;n c&oacute; khả năng sử dụng ma thuật lửa. Nhưng Natsu kh&ocirc;ng phải l&agrave; một ph&aacute;p sư th&ocirc;ng thường, cậu sử dụng ma thuật cổ đại do một con rồng t&ecirc;n l&agrave; Igneel dạy dỗ,v&agrave; l&agrave; th&agrave;nh vi&ecirc;n của một trong số những hội ph&aacute;p sư nổi tiếng nhất.</p>\r\n', 'truyen-tranh/20221007210531_001 (1).jpg', 2, 925, '2022-10-08 02:05:31', 1);
+	(21, 'FAIRYTAIL', 'FAIRY TAIL', ' Mashima Hiro', '<p>Rồi một ng&agrave;y c&ocirc; đến thị trấn Harujion, c&ocirc; đ&atilde; gặp Natsu, một thiếu ni&ecirc;n c&oacute; khả năng sử dụng ma thuật lửa. Nhưng Natsu kh&ocirc;ng phải l&agrave; một ph&aacute;p sư th&ocirc;ng thường, cậu sử dụng ma thuật cổ đại do một con rồng t&ecirc;n l&agrave; Igneel dạy dỗ,v&agrave; l&agrave; th&agrave;nh vi&ecirc;n của một trong số những hội ph&aacute;p sư nổi tiếng nhất.</p>\r\n', 'truyen-tranh/20221007210531_001 (1).jpg', 2, 925, '2022-10-08 02:05:31', 1),
+	(22, 'RE:ZERO', 'RE:ZERO KARA HAJIMERU ISEKAI SEIKATSU', ' Matsuse, Daichi (Art), Nagatsuki, Tappei (Story)', '<p>Subaru Natsuki l&agrave; một học sinh cấp 3 b&igrave;nh thường bị lạc sang một thế giới kh&aacute;c. Sau khi được một c&ocirc; g&aacute;i t&oacute;c bạch kim xinh đẹp cứu, cậu đ&atilde; ở b&ecirc;n c&ocirc; ấy để trả ơn, nhưng số phận m&agrave; c&ocirc; phải g&aacute;nh chịu c&ograve;n lớn hơn cậu tưởng tượng. Kẻ địch cứ tấn c&ocirc;ng kh&ocirc;ng ngừng, v&agrave; cả hai bọn họ đều bị giết. Rồi cậu ph&aacute;t hiện ra m&igrave;nh c&oacute; năng lực đảo ngược thời gian, quay lại l&uacute;c cậu mới đến thế giới n&agrave;y. Tuy nhi&ecirc;n, kh&ocirc;ng ai nhớ được những g&igrave; đ&atilde; xảy ra ngoại trừ cậu.</p>\r\n', 'truyen-tranh/20221009070436_001.jpg', 2, 8, '2022-10-09 12:04:36', 1);
 
 -- Dumping structure for table heroku_9545e73caaf405a.truyen_the_loai
 CREATE TABLE IF NOT EXISTS `truyen_the_loai` (
@@ -828,9 +852,9 @@ CREATE TABLE IF NOT EXISTS `truyen_the_loai` (
   KEY `FK_the-loai_truyen-the-loai` (`the_loai_id`),
   CONSTRAINT `FK_the-loai_truyen-the-loai` FOREIGN KEY (`the_loai_id`) REFERENCES `the_loai` (`the_loai_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_truyen_truyen-the-loai` FOREIGN KEY (`truyen_id`) REFERENCES `truyen` (`truyen_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.truyen_the_loai: ~12 rows (approximately)
+-- Dumping data for table heroku_9545e73caaf405a.truyen_the_loai: ~11 rows (approximately)
 INSERT INTO `truyen_the_loai` (`truyen_the_loai_id`, `truyen_id`, `the_loai_id`) VALUES
 	(33, 15, 16),
 	(34, 15, 17),
@@ -843,7 +867,8 @@ INSERT INTO `truyen_the_loai` (`truyen_the_loai_id`, `truyen_id`, `the_loai_id`)
 	(41, 20, 20),
 	(42, 21, 16),
 	(43, 21, 17),
-	(44, 21, 20);
+	(44, 21, 20),
+	(45, 22, 20);
 
 -- Dumping structure for table heroku_9545e73caaf405a.tuong_tac
 CREATE TABLE IF NOT EXISTS `tuong_tac` (

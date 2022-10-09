@@ -39,7 +39,7 @@
     $sql_danh_sach_chap = <<<EOT
     SELECT chapter_so, chapter_id, chapter_ten, chapter_ngay_cap_nhat, truyen_id
     FROM chapter
-    WHERE truyen_id = '$truyen_id'
+    WHERE truyen_id = '$truyen_id' AND chapter_trang_thai = 1
     ORDER BY chapter_id DESC
     EOT;
         $result_danh_sach_chap = mysqli_query($conn, $sql_danh_sach_chap);

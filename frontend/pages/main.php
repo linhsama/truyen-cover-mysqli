@@ -1,5 +1,11 @@
 <div class="container-cs">
     <div class="container-lm">
+
+        <!-- chapter moi -->
+        <section>
+            <?php require_once __DIR__.'/truyen/chapter-moi-nhat.php'?>
+        </section>
+
         <section>
             <!-- Truyện mới nhất -->
             <?php require_once __DIR__.'/truyen/truyen-moi-nhat.php'?>
@@ -9,7 +15,6 @@
 
         <!-- truyen-da-hoan-thanh -->
         <section>
-            <!-- Truyện mới nhất -->
             <?php require_once __DIR__.'/truyen/truyen-da-hoan-thanh.php'?>
         </section>
 
@@ -22,3 +27,4 @@
 
 <!-- floating-action -->
 <?php require_once __DIR__.'/../partials/floating-action.php'?>
+

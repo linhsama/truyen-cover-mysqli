@@ -17,8 +17,6 @@ if(isset($_SESSION['user'])){
     <link rel="stylesheet" href="../assets/css/app.css" type="text/css" />
     <!-- toasty -->
     <link rel="stylesheet" href="../assets/vendor/toasty/dist/toasty.min.css" type="text/css" />
-
-    <!-- toasty -->
     <style>
     #user-dang-nhap {
         width: 100vw;
@@ -28,8 +26,6 @@ if(isset($_SESSION['user'])){
     }
 
     #user-center {
-        width: 500px;
-        height: 500px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -44,19 +40,26 @@ if(isset($_SESSION['user'])){
     }
 
     .box {
-        border: 1px dotted;
+        background: aliceblue;
         padding: 10px;
         box-shadow: 17px 19px 56px rgb(0 123 255 / 14%);
+        border-radius: 10px;
+        opacity: 0.9;
     }
 
     input.form-control {
         height: 40px !important;
         font-size: 14px;
     }
+
+    .backgound {
+        background-image: url(../assets/background.png);
+        background-position: center;
+    }
     </style>
 </head>
 
-<body>
+<body class="backgound">
     <!-- body -->
     <div class="main-container">
         <?php 
@@ -144,6 +147,28 @@ EOT;
     <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- toasty -->
     <script src="../assets/vendor/toasty/dist/toasty.min.js"></script>
+    <script>
+    var toast = new Toasty({
+        progressBar: true,
+        sounds: {
+            info: "../assets/vendor/toasty/dist/sounds/info/2.mp3",
+            success: "../assets/vendor/toasty/dist/sounds/success/2.mp3",
+            warning: "../assets/vendor/toasty/dist/sounds/warning/2.mp3",
+            error: "../assets/vendor/toasty/dist/sounds/error/3.mp3",
+        },
+        enableSounds: true
+    });
+    </script>
 </body>
+<?php 
+
+    if(isset($_GET['status']) && ($_GET['status']=='success')){
+            echo '<script> toast.success("Thao tác thành công",200);</script>';
+        }
+    if(isset($_GET['status']) && ($_GET['status']=='error')){
+            echo '<script> toast.error("Thao tác thất bại",500);</script>';
+        }
+    
+    ?>
 
 </html>

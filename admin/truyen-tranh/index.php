@@ -4,6 +4,7 @@
     SELECT truyen_id,truyen_ma,truyen_ten,truyen_tac_gia,truyen_anh_dai_dien,
     truyen_mo_ta,truyen_tinh_trang,truyen_luot_xem,truyen_ngay_dang,truyen_trang_thai
     FROM truyen
+    ORDER BY truyen_id DESC
 EOT; 
         $result = mysqli_query($conn, $sql);
         $data = [];

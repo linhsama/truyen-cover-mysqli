@@ -11,7 +11,7 @@
 <?php include_once(__DIR__ . '/../../backend/dbconnect.php'); 
  // select dữ liệu
  $sql = <<<EOT
-    SELECT * FROM truyen LEFT JOIN chapter ON truyen.truyen_id = chapter.truyen_id WHERE truyen.truyen_id = '$truyen_id'
+    SELECT * FROM truyen LEFT JOIN chapter ON truyen.truyen_id = chapter.truyen_id WHERE truyen.truyen_id = '$truyen_id' ORDER BY chapter.chapter_id DESC
 EOT; 
      $result = mysqli_query($conn, $sql);
      $data = [];
@@ -24,6 +24,7 @@ EOT;
              'chapter_trang_thai' => $row['chapter_trang_thai'],
              'truyen_id' => $row['truyen_id'],
              'truyen_ten' => $row['truyen_ten'],
+             'chapter_moi' => $row['chapter_moi'],
          );
      }
 ?>
@@ -70,6 +71,7 @@ EOT;
                             <th>Tên chapter</th>
                             <th>Ngày cập nhật</th>
                             <th>Trạng thái</th>
+                            <th>Chapter mới</th>
                             <th class="text-center">
                                 <a href="index.php?direction=them-chapter&truyen_id=<?=$truyen_id?>">
                                     <div class="btn btn-primary"><i class="fa fa-plus"></i> Thêm mới</div>
@@ -90,6 +92,13 @@ EOT;
                                 <p class="trang_thai_cong_bo">Công bố</p>
                                 <?php elseif($item['chapter_trang_thai'] == 2) : ?>
                                 <p class="trang_thai_an">Ẩn</p>
+                                <?php endif?>
+                            </td>
+                            <td class="text-center">
+                                <?php if($item['chapter_moi'] == 1) : ?>
+                                <p class="trang_thai_cong_bo">Mới</p>
+                                <?php elseif($item['chapter_moi'] == 0) : ?>
+                                <p class="trang_thai_an">Đã cũ</p>
                                 <?php endif?>
                             </td>
                             <td class="text-center font-weight-bold">

@@ -22,6 +22,7 @@ EOT;
         $chapter_so = $_POST['chapter_so'];
         $chapter_ten = $_POST['chapter_ten'];
         $chapter_trang_thai = $_POST['chapter_trang_thai'];
+        $chapter_moi = 1;
 
         // tạo biến chứa lỗi
         $errors = [];
@@ -55,9 +56,15 @@ EOT;
     <!-- thêm thông tin -->
     <?php if(isset($_POST['btn_add_chapter'])) : ?>
     <?php if( !isset($errors) OR (empty($errors))): 
+    $sql_up = <<<EOT
+    UPDATE chapter SET chapter_moi = 0 WHERE truyen_id = '$truyen_id'
+EOT;
+    mysqli_query($conn, $sql_up) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
+
+    // thêm mới
     $sql = <<<EOT
-		INSERT INTO chapter(chapter_so,chapter_ten,chapter_trang_thai,truyen_id) 
-		VALUES ('$chapter_so','$chapter_ten','$chapter_trang_thai','$truyen_id');
+		INSERT INTO chapter(chapter_so,chapter_ten,chapter_trang_thai,chapter_moi,truyen_id) 
+		VALUES ('$chapter_so','$chapter_ten','$chapter_trang_thai','$chapter_moi','$truyen_id');
 EOT;
 		mysqli_query($conn, $sql) or die ("<b>Có lỗi khi thực hiện câu lệnh SQL: </b> ". mysqli_error($conn). "<br/> <b>Câu lệnh vừa thực thi: </b> $sql");
 		echo "<script> location.href='index.php?direction=chapter&truyen_id=$truyen_id&status=success';</script>";
@@ -131,7 +138,8 @@ EOT;
                             <div class="col">
                                 <label for="chapter_so" class="form-label">Chapter số</label>
                                 <input type="text" class="form-control" id="chapter_so" name="chapter_so"
-                                    value=<?=!isset($data_chapter_so['chapter_so']) ? 1 :$data_chapter_so['chapter_so'] + 1?> readonly="">
+                                    value=<?=!isset($data_chapter_so['chapter_so']) ? 1 :$data_chapter_so['chapter_so'] + 1?>
+                                    readonly="">
                             </div>
                             <div class="col">
                                 <label for="chapter_ten" class="form-label">Tên chapter</label>

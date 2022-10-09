@@ -138,7 +138,7 @@ actionToggle.onclick = function() {
 }
 
 actionHome.onclick = function() {
-    window.location.href = '/truyen-cover/index.php'
+    window.location.href = './index.php'
 }
 
 actionMenu.onclick = function() {
