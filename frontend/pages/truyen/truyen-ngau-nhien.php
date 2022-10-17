@@ -12,7 +12,7 @@
     FROM truyen 
     WHERE truyen_trang_thai = "1" AND truyen_id NOT IN (SELECT truyen_id FROM truyen WHERE truyen_id = $truyen_id)
     ORDER BY RAND()        
-    LIMIT 6
+    LIMIT 5
     EOT;
         $result_ngau_nhien = mysqli_query($conn, $sql_ngau_nhien);
         $data_ngau_nhien = [];

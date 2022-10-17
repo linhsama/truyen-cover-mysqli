@@ -42,11 +42,25 @@ body {
         width: 1105px;
         margin: 40px auto !important;
     }
+    .item-medium {
+        width: 170px;
+        height: 309px;
+        margin-right: 1px;
+        margin-bottom: 10px;
+        margin-left: 1px;
+    }
 }
 
 @media(min-width:1366px) and (max-width:1439px) {
     .container-cs {
         width: 1335px
+    }
+    .item-medium {
+        width: 170px;
+        height: 309px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
     }
 }
 
@@ -123,6 +137,13 @@ body {
 @media(max-width:359px) {
     .container-cs {
         width: 300px
+    }
+    .item-medium {
+        width: 170px;
+        height: 309px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 50px;
     }
 }
 
@@ -235,7 +256,7 @@ section {
 section .section-title {
     clear: both;
     margin: 15px 0 15px 10px;
-    font-size: 22px;
+    font-size: 20px;
     border-left: 4px solid;
     padding-left: 10px;
     font-weight: 600;
@@ -517,10 +538,11 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 176px;
-        height: 340px;
-        margin-right: 10px;
-        margin-bottom: 10px
+        width: 170px;
+        height: 309px;
+        margin-right: 25px;
+        margin-bottom: 10px;
+        margin-left: 25px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -621,10 +643,11 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 155px;
+        width: 170px;
         height: 309px;
-        margin-right: 10px;
-        margin-bottom: 10px
+        margin-right: 1px;
+        margin-bottom: 10px;
+        margin-left: 1px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -723,10 +746,11 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 155px;
+        width: 170px;
         height: 309px;
         margin-right: 10px;
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        margin-left: 10px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -827,9 +851,11 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 188px;
-        height: 368px;
-        margin: 10px 10px 10px 0;
+        width: 170px;
+        height: 309px;
+        margin-right: 1px;
+        margin-bottom: 10px;
+        margin-left: 1px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -1044,10 +1070,11 @@ section .section-title {
         margin: 10px 0 0
     }
     .item-medium {
-        width: 147px;
-        height: 277px;
+        width: 170px;
+        height: 309px;
         margin-right: 10px;
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        margin-left: 10px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -1137,10 +1164,11 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 146px;
-        height: 275px;
+        width: 170px;
+        height: 309px;
         margin-right: 10px;
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        margin-left: 10px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -1222,10 +1250,11 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 191px;
-        height: 343px;
+        width: 170px;
+        height: 309px;
         margin-right: 10px;
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        margin-left: 50px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -1300,10 +1329,11 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 173px;
-        height: 316px;
+        width: 170px;
+        height: 309px;
         margin-right: 10px;
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        margin-left: 50px;
     }
     .item-medium .item-thumbnail {
         position: relative;
@@ -1385,7 +1415,7 @@ section .section-title {
     }
     .item-medium {
         width: 170px;
-        height: 100%;
+        height: 309px;
         margin-right: 10px;
         margin-bottom: 10px;
         margin-left: 50px;

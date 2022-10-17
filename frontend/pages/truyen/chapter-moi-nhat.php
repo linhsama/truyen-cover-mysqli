@@ -8,7 +8,7 @@
         FROM truyen inner join chapter on truyen.truyen_id = chapter.truyen_id  AND chapter_trang_thai = 1
         WHERE truyen_trang_thai = "1" and chapter_moi = "1"
         ORDER BY chapter_id DESC
-        LIMIT 6
+        LIMIT 5
     EOT;
         $result_chapter_moi = mysqli_query($conn, $sql_chapter_moi);
         $data_chapter_moi = [];
