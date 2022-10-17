@@ -1,10 +1,6 @@
 <?php 
     //mysql://b099287ee010b1:cce8ce92@us-cdbr-east-06.cleardb.net/heroku_9545e73caaf405a?reconnect=true
-    try{
-        $conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b099287ee010b1', 'cce8ce92', 'heroku_9545e73caaf405a') or die('Xin lỗi, database không kết nối được.');
-    }catch(Exception $e){
-        $conn = mysqli_connect('localhost', 'root', '', 'heroku_9545e73caaf405a') or die('Xin lỗi, database không kết nối được.');
-    }
+    $conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b099287ee010b1', 'cce8ce92', 'heroku_9545e73caaf405a') or die('Xin lỗi, database không kết nối được.');
 
     //$conn = mysqli_connect('localhost', 'root', '', 'heroku_9545e73caaf405a') or die('Xin lỗi, database không kết nối được.');
 
