@@ -120,6 +120,13 @@ body {
     .container-cs {
         width: 392px
     }
+    .item-medium {
+        width: 170px;
+        height: 309px;
+        margin-right: 8px;
+        margin-bottom: 10px;
+        margin-left: 8px;
+    }
 }
 
 @media(min-width:375px) and (max-width:411px) {
@@ -1216,8 +1223,12 @@ section .section-title {
     section .section-right {
         width: 402px
     }
-    .column-right .item-large {
+    .column-right {
         width: 392px;
+        height: auto
+    }
+    .item-large {
+        width: 370px;
         height: auto
     }
     .column-right .item-large .item-thumbnail {
@@ -1236,8 +1247,8 @@ section .section-title {
         margin: 10px 0 0
     }
     .item-large {
-        width: 392px;
-        height: 353px;
+        width: 370px;
+        height: 270px;
         margin-right: 10px;
         margin-bottom: 10px
     }
@@ -1257,9 +1268,9 @@ section .section-title {
     .item-medium {
         width: 170px;
         height: 309px;
-        margin-right: 1px;
+        margin-right: 10px;
         margin-bottom: 10px;
-        margin-left: 1px;
+        margin-left: 10px;
     }
     .item-medium .item-thumbnail {
         position: relative;
