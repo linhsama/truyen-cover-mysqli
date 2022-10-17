@@ -1384,76 +1384,95 @@ section .section-title {
         max-height: 150px
     }
     .item-medium {
-        width: 165px;
-        height: 314px;
+        width: 170px;
+        height: 100%;
         margin-right: 10px;
-        margin-bottom: 10px
-    }
-    .item-medium .item-thumbnail {
-        position: relative;
-        width: 165px;
-        height: 248px
-    }
-    .item-medium .item-thumbnail img {
-        width: 100%;
-        height: 100%
-    }
-    .item-medium .item-title {
-        margin: 5px 0 0
-    }
-    .item-super {
-        height: 258px;
-        margin-bottom: 10px
-    }
-    .item-super .item-thumbnail {
-        width: 165px;
-        height: 248px
-    }
-    .item-super .item-description {
-        max-height: 175px
+        margin-bottom: 10px;
+        margin-left: 50px;
     }
 }
 
+.item-medium .item-thumbnail {
+    position: relative;
+    width: 165px;
+    height: 248px
+}
+
+.item-medium .item-thumbnail img {
+    width: 100%;
+    height: 100%
+}
+
+.item-medium .item-title {
+    margin: 5px 0 0
+}
+
+.item-super {
+    height: 258px;
+    margin-bottom: 10px
+}
+
+.item-super .item-thumbnail {
+    width: 165px;
+    height: 248px
+}
+
+.item-super .item-description {
+    max-height: 175px
+}
+
+
+}
 @media(max-width:359px) {
     .manga-thumbnail {
         float: none !important;
     }
+    
     p {
         margin-right: 3rem !important;
     }
+    
     section {
         margin-bottom: 20px
     }
+    
     section,
     section .section-left,
     section .section-right {
         width: 310px
     }
+    
     .column-right .item-large {
         width: 300px;
         height: auto
     }
+    
     .column-right .item-large .item-thumbnail {
         width: 300px;
         height: 160px
     }
+    
     .item-big {
         width: 300px;
         margin-right: 10px;
         margin-bottom: 20px
     }
+    
     .item-big .item-thumbnail {
         height: 160px
     }
+    
     .item-big .item-title {
         margin: 10px 0 0
     }
+    
     .item-large {
         width: 300px;
         height: 228px;
         margin-right: 10px;
         margin-bottom: 20px
     }
+    
     .item-large .item-thumbnail {
         float: left;
         width: 145px;
@@ -1461,38 +1480,47 @@ section .section-title {
         margin-right: 10px;
         margin-bottom: 10px
     }
+    
     .item-large .item-title {
         margin: 5px 0
     }
+    
     .item-large .item-description {
         max-height: 150px
     }
+    
     .item-medium {
         width: 145px;
         height: 275px;
         margin-right: 10px;
         margin-bottom: 10px
     }
+    
     .item-medium .item-thumbnail {
         position: relative;
         width: 145px;
         height: 218px
     }
+    
     .item-medium .item-thumbnail img {
         width: 100%;
         height: 100%
     }
+    
     .item-medium .item-title {
         margin: 5px 0 0
     }
+    
     .item-super {
         height: 228px;
         margin-bottom: 10px
     }
+    
     .item-super .item-thumbnail {
         width: 145px;
         height: 218px
     }
+    
     .item-super .item-description {
         max-height: 125px
     }

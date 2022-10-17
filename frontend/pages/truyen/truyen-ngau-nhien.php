@@ -1,7 +1,5 @@
 <?php include_once(__DIR__ . '/../../../backend/dbconnect.php'); ?>
 <?php include_once(__DIR__ . '/../../../backend/custom_fomart.php'); ?>
-
-<!-- truyện ngẫu nhiên -->
 <?php
 
     if(isset($_GET['truyen_id'])){

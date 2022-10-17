@@ -342,16 +342,14 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                 </div>
                 <?php endif ?>
             </div>
-</div>
-<div class="manga-comment">
-    <div class="fb-comments"
-        data-href="https://truyencover.herokuapp.com/index.php?truyen-manga=noi-dung-chapter&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$item_chapter['chapter_so']?>"
-        data-width="100%" data-numposts="3"></div>
-</div>
-<!-- truyen ngau nhien -->
-<div class="manga-comment">
-    <section>
-        <?php require_once __DIR__.'/../truyen/truyen-ngau-nhien.php'?>
-</section>
-</div>
+        </div>
+        <div class="manga-comment">
+            <div class="fb-comments"
+                data-href="https://truyencover.herokuapp.com/index.php?truyen-manga=noi-dung-chapter&truyen_id=<?= $data[0]['truyen_id'];?>&chapter_so=<?=$item_chapter['chapter_so']?>"
+                data-width="100%" data-numposts="3"></div>
+        </div>
+        <!-- truyen ngau nhien -->
+        <div class="manga-comment">
+            <?php require_once __DIR__.'/../truyen/truyen-ngau-nhien.php'?>
+        </div>
 </div>
