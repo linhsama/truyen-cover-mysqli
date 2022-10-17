@@ -28,7 +28,6 @@
 
     <!-- Nhúng file quản lý phần SCRIPT JAVASCRIPT -->
     <?php include_once(__DIR__ . '/frontend/layouts/scripts.php'); ?>
-
-</body>
-
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0" nonce="jB1NhBGh"></script>
 </html>

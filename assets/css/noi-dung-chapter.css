@@ -8,6 +8,11 @@ p {
     margin-right: 2rem;
 }
 
+.manga-comment {
+    width: 100%;
+    padding: 0 10% 0 10%;
+}
+
 
 /* .chapter-list.ps-container:hover {
     border-left: 2px solid red;
