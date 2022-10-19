@@ -122,6 +122,7 @@ EOT;
 
     <script>
     $('#table_tai-khoan').DataTable({});
+    
 
     $(function() {
         $('.btn-delete').on('click', function() {
