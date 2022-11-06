@@ -133,11 +133,11 @@
         $upload_dir = __DIR__ . "/../../assets/uploads/truyen-tranh/";
         $tentaptin = date('YmdHis').'_'.$_FILES['truyen_anh_dai_dien']['name'];
         $res = move_uploaded_file($_FILES['truyen_anh_dai_dien']['tmp_name'],$upload_dir.$tentaptin);
-        include_once(__DIR__ . '/resizeImage.php'); 
-        $image = new ResizeImage();
-        $image->load($upload_dir.$tentaptin);
-        $image->resize(200,300);
-        $image->save($upload_dir.$tentaptin);
+        // include_once(__DIR__ . '/resizeImage.php'); 
+        // $image = new ResizeImage();
+        // $image->load($upload_dir.$tentaptin);
+        // $image->resize(200,300);
+        // $image->save($upload_dir.$tentaptin);
         if($res){
             $ten_tap_tin = 'truyen-tranh/'.$tentaptin;
             $sql = <<<EOT
