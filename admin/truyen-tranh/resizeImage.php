@@ -74,7 +74,7 @@ $this->resize($width,$height);
 }
 
 function resize($width,$height) {
-$new_image = imagecreatetruecolor($width, $height);
+$new_image = imagecreate($width, $height);
 imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $this->getWidth(), $this->getHeight());
 $this->image = $new_image;
 }
