@@ -65,7 +65,6 @@
                         '$phan_quyen')
     EOT; 
                         $status = mysqli_query($conn, $sql);
-                        $data = mysqli_fetch_array($status, MYSQLI_ASSOC);
                         echo "<script> location.href='./dang-nhap.php?status=success';</script>";
                     }
                 }
