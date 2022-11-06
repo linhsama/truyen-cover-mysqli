@@ -7,9 +7,8 @@ function load($filename) {
 
 $image_info = getimagesize($filename);
 $this->image_type = $image_info[2];
-if( $this->image_type == IMAGETYPE_JPG ) {
-    $this->image = imagecreatefromjpg($filename);
-} elseif( $this->image_type == IMAGETYPE_JPEG ) {
+if( $this->image_type == IMAGETYPE_JPEG ) {
+
 $this->image = imagecreatefromjpeg($filename);
 } elseif( $this->image_type == IMAGETYPE_GIF ) {
 

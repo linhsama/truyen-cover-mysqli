@@ -139,7 +139,7 @@ EOT;
 
     if(strlen($_FILES['truyen_anh_dai_dien']['name'])>0){
     $path = __DIR__ . "/../../assets/uploads/".$data_old['truyen_anh_dai_dien'];
-    if(isset($path)){
+    if(file_exists($path)){
         unlink($path);
     }
      
