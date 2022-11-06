@@ -139,7 +139,9 @@ EOT;
 
     if(strlen($_FILES['truyen_anh_dai_dien']['name'])>0){
     $path = __DIR__ . "/../../assets/uploads/".$data_old['truyen_anh_dai_dien'];
-    unlink($path);
+    if(isset($path)){
+        unlink($path);
+    }
      
     $upload_dir = __DIR__ . "/../../assets/uploads/truyen-tranh/";
     $tentaptin = date('YmdHis').'_'.$_FILES['truyen_anh_dai_dien']['name'];
