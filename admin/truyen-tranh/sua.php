@@ -1,4 +1,5 @@
 <?php
+    
     // kiểm tra get có id không
     if(isset($_GET['truyen_id'])){
         $truyen_id = $_GET['truyen_id'];
@@ -145,6 +146,12 @@ EOT;
 
     move_uploaded_file($_FILES['truyen_anh_dai_dien']['tmp_name'],$upload_dir.$tentaptin);
     $ten_tap_tin = 'truyen-tranh/'.$tentaptin;
+    
+    include_once(__DIR__ . '/resizeImage.php'); 
+    $image = new ResizeImage();
+    $image->load($upload_dir.$tentaptin);
+    $image->resize(200,300);
+    $image->save($upload_dir.$tentaptin);
  
     }else{
         $ten_tap_tin = $data_old['truyen_anh_dai_dien'];
