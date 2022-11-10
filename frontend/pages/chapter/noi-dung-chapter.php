@@ -216,7 +216,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                 if (user_tai_khoan_id == 0) {
                     let res = confirm("Vui lòng đăng nhập để sử dụng chức năng này");
                     if (res == true) {
-                        location.href = ("./backend/auth/dang-nhap.php");
+                        location.href = ("./auth/dang-nhap.php");
                     }
                 } else {
                     $.post("./frontend/pages/chapter/xu-ly-thich-theo-doi.php", {
@@ -243,7 +243,7 @@ if(isset($_SESSION['user_tai_khoan_id'])){
                 if (user_tai_khoan_id == 0) {
                     let res = confirm("Vui lòng đăng nhập để sử dụng chức năng này");
                     if (res == true) {
-                        location.href = ("./backend/auth/dang-nhap.php");
+                        location.href = ("./auth/dang-nhap.php");
                     }
                 } else {
                     $.post("./frontend/pages/chapter/xu-ly-thich-theo-doi.php", {
