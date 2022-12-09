@@ -15,11 +15,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for heroku_9545e73caaf405a
-CREATE DATABASE IF NOT EXISTS `heroku_9545e73caaf405a` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `heroku_9545e73caaf405a`;
+-- Dumping database structure for heroku_95b5f48f3ea586c
+CREATE DATABASE IF NOT EXISTS `heroku_95b5f48f3ea586c` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `heroku_95b5f48f3ea586c`;
 
--- Dumping structure for table heroku_9545e73caaf405a.chapter
+-- Dumping structure for table heroku_95b5f48f3ea586c.chapter
 CREATE TABLE IF NOT EXISTS `chapter` (
   `chapter_id` int(11) NOT NULL AUTO_INCREMENT,
   `chapter_so` int(10) unsigned NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `chapter` (
   CONSTRAINT `FK_truyen_chapter` FOREIGN KEY (`truyen_id`) REFERENCES `truyen` (`truyen_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.chapter: ~24 rows (approximately)
+-- Dumping data for table heroku_95b5f48f3ea586c.chapter: ~24 rows (approximately)
 INSERT INTO `chapter` (`chapter_id`, `chapter_so`, `chapter_ten`, `chapter_ngay_cap_nhat`, `chapter_trang_thai`, `chapter_moi`, `truyen_id`) VALUES
 	(48, 1, 'chapter 1', '2022-10-08 01:21:56', 1, '0', 15),
 	(49, 2, 'chapter 2', '2022-10-08 01:22:03', 1, '0', 15),
@@ -60,7 +60,7 @@ INSERT INTO `chapter` (`chapter_id`, `chapter_so`, `chapter_ten`, `chapter_ngay_
 	(70, 1, 'chapter', '2022-10-09 12:08:36', 1, '0', 22),
 	(71, 2, 'chapter 2', '2022-10-09 12:10:55', 1, '1', 22);
 
--- Dumping structure for table heroku_9545e73caaf405a.chapter_noi_dung
+-- Dumping structure for table heroku_95b5f48f3ea586c.chapter_noi_dung
 CREATE TABLE IF NOT EXISTS `chapter_noi_dung` (
   `chapter_noi_dung_id` int(11) NOT NULL AUTO_INCREMENT,
   `chapter_noi_dung` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Lưu nội dung chap truyện hoặc hình ảnh của chap',
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `chapter_noi_dung` (
   CONSTRAINT `FK_chapter_chapter-noi-dung` FOREIGN KEY (`chapter_id`) REFERENCES `chapter` (`chapter_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1914 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.chapter_noi_dung: ~709 rows (approximately)
+-- Dumping data for table heroku_95b5f48f3ea586c.chapter_noi_dung: ~709 rows (approximately)
 INSERT INTO `chapter_noi_dung` (`chapter_noi_dung_id`, `chapter_noi_dung`, `chapter_id`) VALUES
 	(1205, 'truyen-tranh/20221007202226_002.jpg', 48),
 	(1206, 'truyen-tranh/20221007202226_003.jpg', 48),
@@ -782,7 +782,7 @@ INSERT INTO `chapter_noi_dung` (`chapter_noi_dung_id`, `chapter_noi_dung`, `chap
 	(1912, 'truyen-tranh/20221009071915_011.jpg', 71),
 	(1913, 'truyen-tranh/20221009071915_012.jpg', 71);
 
--- Dumping structure for table heroku_9545e73caaf405a.tai_khoan
+-- Dumping structure for table heroku_95b5f48f3ea586c.tai_khoan
 CREATE TABLE IF NOT EXISTS `tai_khoan` (
   `tai_khoan_id` int(11) NOT NULL AUTO_INCREMENT,
   `ten_hien_thi` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -793,7 +793,7 @@ CREATE TABLE IF NOT EXISTS `tai_khoan` (
   PRIMARY KEY (`tai_khoan_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.tai_khoan: ~5 rows (approximately)
+-- Dumping data for table heroku_95b5f48f3ea586c.tai_khoan: ~5 rows (approximately)
 INSERT INTO `tai_khoan` (`tai_khoan_id`, `ten_hien_thi`, `ten_tai_khoan`, `mat_khau`, `phan_quyen`, `trang_thai`) VALUES
 	(13, 'admin', 'admin', '4297f44b13955235245b2497399d7a93', 0, 1),
 	(14, 'mod', 'mod', '4297f44b13955235245b2497399d7a93', 1, 1),
@@ -801,7 +801,7 @@ INSERT INTO `tai_khoan` (`tai_khoan_id`, `ten_hien_thi`, `ten_tai_khoan`, `mat_k
 	(16, 'linh', 'linh', '4297f44b13955235245b2497399d7a93', 2, 1),
 	(17, 'user1', 'user1', '4297f44b13955235245b2497399d7a93', 2, 1);
 
--- Dumping structure for table heroku_9545e73caaf405a.the_loai
+-- Dumping structure for table heroku_95b5f48f3ea586c.the_loai
 CREATE TABLE IF NOT EXISTS `the_loai` (
   `the_loai_id` int(11) NOT NULL AUTO_INCREMENT,
   `the_loai_ten` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -809,7 +809,7 @@ CREATE TABLE IF NOT EXISTS `the_loai` (
   PRIMARY KEY (`the_loai_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.the_loai: ~5 rows (approximately)
+-- Dumping data for table heroku_95b5f48f3ea586c.the_loai: ~5 rows (approximately)
 INSERT INTO `the_loai` (`the_loai_id`, `the_loai_ten`, `the_loai_mo_ta`) VALUES
 	(16, 'Hành động', 'Hành động'),
 	(17, 'Phiêu lưu', 'Phiêu lưu'),
@@ -817,7 +817,7 @@ INSERT INTO `the_loai` (`the_loai_id`, `the_loai_ten`, `the_loai_mo_ta`) VALUES
 	(19, 'Học đường', 'Học đường'),
 	(20, 'Siêu nhiên', 'Siêu nhiên');
 
--- Dumping structure for table heroku_9545e73caaf405a.truyen
+-- Dumping structure for table heroku_95b5f48f3ea586c.truyen
 CREATE TABLE IF NOT EXISTS `truyen` (
   `truyen_id` int(11) NOT NULL AUTO_INCREMENT,
   `truyen_ma` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -832,7 +832,7 @@ CREATE TABLE IF NOT EXISTS `truyen` (
   PRIMARY KEY (`truyen_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.truyen: ~8 rows (approximately)
+-- Dumping data for table heroku_95b5f48f3ea586c.truyen: ~8 rows (approximately)
 INSERT INTO `truyen` (`truyen_id`, `truyen_ma`, `truyen_ten`, `truyen_tac_gia`, `truyen_mo_ta`, `truyen_anh_dai_dien`, `truyen_tinh_trang`, `truyen_luot_xem`, `truyen_ngay_dang`, `truyen_trang_thai`) VALUES
 	(15, 'ONEPIECE', 'ONE', 'Oda', '<p>One Piece l&agrave; c&acirc;u truyện kể về Luffy v&agrave; c&aacute;c thuyền vi&ecirc;n của m&igrave;nh. Khi c&ograve;n nhỏ, Luffy ước mơ trở th&agrave;nh Vua Hải Tặc. Cuộc sống của cậu b&eacute; thay đổi khi cậu v&ocirc; t&igrave;nh c&oacute; được sức mạnh c&oacute; thể co d&atilde;n như cao su, nhưng đổi lại, cậu kh&ocirc;ng bao giờ c&oacute; thể bơi được nữa. Giờ đ&acirc;y, Luffy c&ugrave;ng những người bạn hải tặc của m&igrave;nh ra khơi t&igrave;m kiếm kho b&aacute;u One Piece, kho b&aacute;u vĩ đại nhất tr&ecirc;n thế giới. Trong One Piece, mỗi nh&acirc;n vật trong đều mang một n&eacute;t c&aacute; t&iacute;nh đặc sắc kết hợp c&ugrave;ng c&aacute;c t&igrave;nh huống kịch t&iacute;nh, lối dẫn truyện hấp dẫn chứa đầy c&aacute;c bước ngoặt bất ngờ v&agrave; cũng v&ocirc; c&ugrave;ng h&agrave;i hước đ&atilde; biến One Piece trở th&agrave;nh một trong những bộ truyện nổi tiếng nhất kh&ocirc;ng thể bỏ qua.<br />\r\nH&atilde;y đọc One Piece để h&ograve;a m&igrave;nh v&agrave;o một thế giới của những hải tặc rộng lớn, đầy m&agrave;u sắc, sống động v&agrave; th&uacute; vị, c&ugrave;ng đắm ch&igrave;m với những nh&acirc;n vật y&ecirc;u tự do, tr&ecirc;n h&agrave;nh tr&igrave;nh đi t&igrave;m ước mơ của m&igrave;nh.</p>\r\n', 'truyen-tranh/20221110173744_001.jpg', 1, 1236, '2022-10-08 01:20:27', 1),
 	(16, 'CONAN', 'CONAN', 'Gosho', '<p>Mở đầu c&acirc;u truyện, cậu học sinh trung học 16 tuổi Shinichi Kudo bị biến th&agrave;nh cậu b&eacute; Conan Edogawa. Shinichi trong phần đầu của Th&aacute;m tử lừng danh Conan được mi&ecirc;u tả l&agrave; một th&aacute;m tử học đường. Trong một lần đi chơi c&ocirc;ng vi&ecirc;n &quot;Miền Nhiệt đới&quot; với c&ocirc; bạn từ thuở nhỏ (cũng l&agrave; bạn g&aacute;i) Ran Mori , cậu bị d&iacute;nh v&agrave;o vụ &aacute;n một h&agrave;nh kh&aacute;ch tr&ecirc;n Chuyến t&agrave;u tốc h&agrave;nh trong c&ocirc;ng vi&ecirc;n, Kishida , bị giết trong một vụ &aacute;n cắt đầu r&ugrave;ng rợn. Cậu đ&atilde; l&agrave;m s&aacute;ng tỏ vụ &aacute;n v&agrave; tr&ecirc;n đường về nh&agrave;, chứng kiến một vụ l&agrave;m ăn mờ &aacute;m của những người đ&agrave;n &ocirc;ng mặc to&agrave;n đồ đen. Kudo bị ph&aacute;t hiện, bị đ&aacute;nh ngất sau đ&oacute; những người đ&agrave;n &ocirc;ng &aacute;o đen đ&atilde; cho cậu uống một thứ thuốc độc chưa qua thử nghiệm l&agrave; Apotoxin-4869 (APTX4869) với mục đ&iacute;ch thủ ti&ecirc;u cậu. Tuy nhi&ecirc;n chất độc đ&atilde; kh&ocirc;ng giết chết Kudo. Khi tỉnh lại, cậu b&agrave;ng ho&agrave;ng nhận thấy th&acirc;n thể m&igrave;nh đ&atilde; bị teo nhỏ trong h&igrave;nh dạng của một cậu học sinh tiểu học....</p>\r\n', 'truyen-tranh/20221110173730_001.jpg', 1, 1022, '2022-10-08 01:32:28', 1),
@@ -843,7 +843,7 @@ INSERT INTO `truyen` (`truyen_id`, `truyen_ma`, `truyen_ten`, `truyen_tac_gia`, 
 	(21, 'FAIRYTAIL', 'FAIRY', 'Mashima', '<p>Rồi một ng&agrave;y c&ocirc; đến thị trấn Harujion, c&ocirc; đ&atilde; gặp Natsu, một thiếu ni&ecirc;n c&oacute; khả năng sử dụng ma thuật lửa. Nhưng Natsu kh&ocirc;ng phải l&agrave; một ph&aacute;p sư th&ocirc;ng thường, cậu sử dụng ma thuật cổ đại do một con rồng t&ecirc;n l&agrave; Igneel dạy dỗ,v&agrave; l&agrave; th&agrave;nh vi&ecirc;n của một trong số những hội ph&aacute;p sư nổi tiếng nhất.</p>\r\n', 'truyen-tranh/20221110173720_001.jpg', 2, 926, '2022-10-08 02:05:31', 1),
 	(22, 'RE:ZERO', 'RE:ZERO KARA HAJIMERU ISEKAI SEIKATSU', ' Matsuse, Daichi (Art), Nagatsuki, Tappei (Story)', '<p>Subaru Natsuki l&agrave; một học sinh cấp 3 b&igrave;nh thường bị lạc sang một thế giới kh&aacute;c. Sau khi được một c&ocirc; g&aacute;i t&oacute;c bạch kim xinh đẹp cứu, cậu đ&atilde; ở b&ecirc;n c&ocirc; ấy để trả ơn, nhưng số phận m&agrave; c&ocirc; phải g&aacute;nh chịu c&ograve;n lớn hơn cậu tưởng tượng. Kẻ địch cứ tấn c&ocirc;ng kh&ocirc;ng ngừng, v&agrave; cả hai bọn họ đều bị giết. Rồi cậu ph&aacute;t hiện ra m&igrave;nh c&oacute; năng lực đảo ngược thời gian, quay lại l&uacute;c cậu mới đến thế giới n&agrave;y. Tuy nhi&ecirc;n, kh&ocirc;ng ai nhớ được những g&igrave; đ&atilde; xảy ra ngoại trừ cậu.</p>\r\n', 'truyen-tranh/20221009070436_001.jpg', 2, 11, '2022-10-09 12:04:36', 1);
 
--- Dumping structure for table heroku_9545e73caaf405a.truyen_the_loai
+-- Dumping structure for table heroku_95b5f48f3ea586c.truyen_the_loai
 CREATE TABLE IF NOT EXISTS `truyen_the_loai` (
   `truyen_the_loai_id` int(11) NOT NULL AUTO_INCREMENT,
   `truyen_id` int(11) NOT NULL,
@@ -855,7 +855,7 @@ CREATE TABLE IF NOT EXISTS `truyen_the_loai` (
   CONSTRAINT `FK_truyen_truyen-the-loai` FOREIGN KEY (`truyen_id`) REFERENCES `truyen` (`truyen_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.truyen_the_loai: ~13 rows (approximately)
+-- Dumping data for table heroku_95b5f48f3ea586c.truyen_the_loai: ~13 rows (approximately)
 INSERT INTO `truyen_the_loai` (`truyen_the_loai_id`, `truyen_id`, `the_loai_id`) VALUES
 	(33, 15, 16),
 	(34, 15, 17),
@@ -871,7 +871,7 @@ INSERT INTO `truyen_the_loai` (`truyen_the_loai_id`, `truyen_id`, `the_loai_id`)
 	(44, 21, 20),
 	(45, 22, 20);
 
--- Dumping structure for table heroku_9545e73caaf405a.tuong_tac
+-- Dumping structure for table heroku_95b5f48f3ea586c.tuong_tac
 CREATE TABLE IF NOT EXISTS `tuong_tac` (
   `tuong_tac_id` int(11) NOT NULL AUTO_INCREMENT,
   `tuong_tac_noi_dung` mediumint(9) DEFAULT NULL,
@@ -885,7 +885,7 @@ CREATE TABLE IF NOT EXISTS `tuong_tac` (
   CONSTRAINT `FK_tai-khoan_tuong-tac` FOREIGN KEY (`tai_khoan_id`) REFERENCES `tai_khoan` (`tai_khoan_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=254 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table heroku_9545e73caaf405a.tuong_tac: ~0 rows (approximately)
+-- Dumping data for table heroku_95b5f48f3ea586c.tuong_tac: ~0 rows (approximately)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
