@@ -1,5 +1,6 @@
-<?php if(!$_SESSION['admin']){
-		echo '<script> location.href="index.php?auth/dang-nh&/script>';
+<?php 
+if(!$_SESSION['admin']){
+		echo '<script> location.href="index.php?auth/dang-nhap.php/script>';
     }
     ?>
 <?php if(isset($_GET['truyen_id'])){

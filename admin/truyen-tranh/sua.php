@@ -210,8 +210,8 @@ EOT;
                     <a href="truyen-the-loai.php?truyen_id=<?=$data_old['truyen_id']?>" class="btn btn-secondary"><i
                             class="fa-solid fa-book-bible"></i> Cập nhật truyện thể loại
                     </a>
-                    <a href="../chapter/index.php?truyen_id=<?=$data_old['truyen_id']?>" class="btn btn-primary"><i
-                            class="fa-solid fa-book-bible"></i> Cập nhật chapter
+                    <a href="index.php?direction=chapter&truyen_id=<?=$data_old['truyen_id']?>"
+                        class="btn btn-primary"><i class="fa-solid fa-book-bible"></i> Cập nhật chapter
                     </a>
                 </div>
 

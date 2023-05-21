@@ -62,7 +62,8 @@ a {
     box-shadow: 17px 19px 56px rgb(0 123 255 / 14%);
     border-radius: 10px;
     opacity: 0.9;
-    min-width: max-content;
+    width: 500px;
+    min-height: 400px;
 }
 
 input.form-control {
